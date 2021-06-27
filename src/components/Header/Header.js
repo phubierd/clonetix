@@ -17,11 +17,11 @@ export default function HomeTemplate() {
 
     return (
         <Layout>
-            <Header style={{ position: 'fixed', zIndex: 1, width: '100%'}}>
+            <Header style={{ position: 'fixed', zIndex: 1, width: '100%'}} >
                 <div className="logo">
                     <a href="#"><img src="./imgTix/web-logo.png" width='50px' height='50px'/></a>
                 </div>
-                <Menu theme="light" mode="horizontal" >
+                <Menu theme="light" mode="horizontal" co>
                     <Menu.Item key="1">Lịch Chiếu</Menu.Item>
                     <Menu.Item key="2">Cụm Rạp</Menu.Item>
                     <Menu.Item key="3">Tin Tức</Menu.Item>

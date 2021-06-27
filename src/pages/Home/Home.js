@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import MyCarousel from '../../components/Carousel/Carousel'
 import ListFilm from '../../components/ListFilm/ListFilm';
+import ListCinema from '../../components/ListCinema/ListCinema';
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
             <Header />
             <MyCarousel />
             <ListFilm />
+            <ListCinema/>
             <Footer />
         </Fragment>
     )

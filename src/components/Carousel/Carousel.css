@@ -1,6 +1,8 @@
 .carousel__img {
     position: relative;
     cursor: pointer;
+    height: 100%;
+    width: 100%;
 }
 .carousel__img:hover .playBtn {
     opacity: 1;
