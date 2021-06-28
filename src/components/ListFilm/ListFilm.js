@@ -66,7 +66,7 @@ export default function ListFilm() {
 
             </Row>
 
-            <Carousel afterChange={onChange} arrows >
+            <Carousel afterChange={onChange} arrows dots={false} >
                 <div>
                     <Row justify="center" orientation="center" align="center">
                         <Col span={16} align="center">
@@ -78,6 +78,31 @@ export default function ListFilm() {
                             </Space>
 
                             <div className="site-card-wrapper">
+                                <Row gutter={16}>
+                                    <Col span={6} >
+                                        <Card className="cardListFilm" bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" loading={true} />}>
+                                            <div className="listFilm__overLay" />
+                                            <img className="listFilm__play" src="./imgTix/play-video.png" />
+                                            <Meta title="Trạng Tí Phiêu Lưu Ký ádădấdcăẻcăewe" description="100 phút" />
+                                            {/* title xài if nếu dài hơn bn ký tự thì br */}
+                                        </Card>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Card bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                            <Meta title="Europe Street beat" description="www.instagram.com" />
+                                        </Card>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Card bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                            <Meta title="Europe Street beat" description="www.instagram.com" />
+                                        </Card>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Card bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
+                                            <Meta title="Europe Street beat" description="www.instagram.com" />
+                                        </Card>
+                                    </Col>
+                                </Row>
                                 <Row gutter={16}>
                                     <Col span={6} >
                                         <Card className="cardListFilm" bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" loading={true} />}>

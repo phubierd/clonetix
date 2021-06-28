@@ -20,7 +20,7 @@ export default function MyCarousel(props) {
                     <div>
 
                         <div className="carousel__img">
-                            <img src="./imgTix/trangTi-carousel.jpg" style={contentStyle}></img>
+                            <img src="../../asset/img/trangTi-carousel.jpg" style={contentStyle}></img>
                             <img className="playBtn" src="./imgTix/play-video.png" />
                         </div>
 

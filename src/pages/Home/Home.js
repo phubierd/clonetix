@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer'
 import MyCarousel from '../../components/Carousel/Carousel'
 import ListFilm from '../../components/ListFilm/ListFilm';
 import ListCinema from '../../components/ListCinema/ListCinema';
+import AppMobile from '../../components/AppMobile/AppMobile';
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
             <MyCarousel />
             <ListFilm />
             <ListCinema/>
+            <AppMobile/>
             <Footer />
         </Fragment>
     )

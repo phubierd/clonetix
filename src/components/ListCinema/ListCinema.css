@@ -1,0 +1,31 @@
+/* .ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+    right: 30px;
+    width: 50px;
+    height: 100px;
+}
+.ant-carousel .slick-prev::before {
+    content: "<";
+
+}
+.ant-carousel .slick-prev {
+    left: 1%;
+    z-index: 1;
+}
+.ant-carousel .slick-next {
+    right: 1%;
+
+
+}
+.ant-carousel .slick-next::before {
+    content: ">";
+}
+.ant-carousel .slick-arrow::before {
+    font-size: 80px;
+    font-family: "slick";
+    color: rgba(255, 255, 255, 0.34);
+   
+
+
+}
+ */
