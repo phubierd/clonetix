@@ -2,7 +2,10 @@ import React from 'react'
 import { Carousel, Icon } from 'antd';
 import { Layout } from 'antd';
 import './Carousel.css'
-
+import carousel1 from 'asset/img/trangTi-carousel.jpg'
+import carousel2 from 'asset/img/latMat-carousel.jpg'
+import carousel3 from 'asset/img/banTay-carousel.png'
+import playBtn from 'asset/img/play-video.png'
 
 export default function MyCarousel(props) {
     const contentStyle = {
@@ -20,21 +23,21 @@ export default function MyCarousel(props) {
                     <div>
 
                         <div className="carousel__img">
-                            <img src="../../asset/img/trangTi-carousel.jpg" style={contentStyle}></img>
-                            <img className="playBtn" src="./imgTix/play-video.png" />
+                            <img src={carousel1} style={contentStyle}></img>
+                            <img className="playBtn" src={playBtn} />
                         </div>
 
                     </div>
                     <div>
                         <div className="carousel__img">
-                            <img src="./imgTix/latMat-carousel.jpg" style={contentStyle}></img>
-                            <img className="playBtn" src="./imgTix/play-video.png" />
+                            <img src={carousel2} style={contentStyle}></img>
+                            <img className="playBtn" src={playBtn} />
                         </div>
                     </div>
                     <div>
                         <div className="carousel__img">
-                            <img src="./imgTix/banTay-carousel.png" style={contentStyle}></img>
-                            <img className="playBtn" src="./imgTix/play-video.png" />
+                            <img src={carousel3} style={contentStyle}></img>
+                            <img className="playBtn" src={playBtn} />
                         </div>
                     </div>
                 </Carousel>

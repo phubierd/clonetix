@@ -61,3 +61,25 @@
     top: 0%;
     left: 0%;
 }
+
+.listFilm__rate {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    height: 50px;
+    width: 80px;
+    background-color: rgba(12,27,54,.8);
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #1f2e46;
+    color: white;
+}
+.listFilm__star{
+    font-size: 8px;
+}
+.ant-rate-star:not(:last-child){
+    margin-right: 5px;
+}
+.listFilm__text{
+    font-size: 16px;
+}

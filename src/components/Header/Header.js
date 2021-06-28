@@ -5,8 +5,8 @@ import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 import './Header.css';
-import MyCarousel from 'components/Carousel/Carousel';
 import logo from 'asset/img/web-logo.png'
+
 export default function HomeTemplate() {
     const { Header, Content, Footer } = Layout;
     const { Option } = Select;
