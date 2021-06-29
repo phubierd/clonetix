@@ -1,9 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Layout, Row, Col, Typography } from 'antd';
+import './Footer.css';
 import zionLogo from 'asset/img/zion-logo.jpg'
 import daThongBao from 'asset/img/dathongbao.png'
-import './Footer.css';
+
 
 
 export default function Footer() {
