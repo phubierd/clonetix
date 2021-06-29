@@ -33,10 +33,10 @@ export default function AppMobile() {
                             {/* <div className="appMobile__iphone"></div> */}
                             <div className="appMobile__content">
                                 <img src={mobile} height="100%" width="195px" className="appMobile__iphone" />
-                                <Carousel autoplay>
-                                    <div><img className="appMobile__apps" src={slide1} width="180px" height="400px"/></div>
-                                    <div><img className="appMobile__apps" src={slide2} width="180px" height="400px" /></div>
-                                    <div><img className="appMobile__apps" src={slide3} width="180px" height="400px" /></div>
+                                <Carousel autoplay dots={false} draggable={true} >
+                                    <div><img className="appMobile__apps" src={slide1} width="185px" height="400px"/></div>
+                                    <div><img className="appMobile__apps" src={slide2} width="185px" height="400px" /></div>
+                                    <div><img className="appMobile__apps" src={slide3} width="185px" height="400px" /></div>
 
                                 </Carousel>
                             </div>

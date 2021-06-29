@@ -1,0 +1,20 @@
+.myFooter{
+    background: #222222;
+    color: #949494;
+}
+.myFooter a{
+    color: #FB4226
+}
+.myFooter a:hover{
+    color: #FB4226
+}
+.myFooter .ant-typography{
+    color: #ffffff;
+}
+
+.myFooterHr{
+
+    width: 100%;
+    margin: 20px 0;
+    border-top: 1px solid #4a4a4a;
+}

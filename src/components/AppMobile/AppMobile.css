@@ -37,9 +37,16 @@
     position: absolute;
     top: 0;
     left: 0;
+
 }
-.appMobile__app {
-    position: absolute;
+.appMobile__apps {
+    /* position: absolute;
     top: 0%;
-    left: 0%;
+    left: 0%; */
+    border-radius: 20px;
+}
+
+.slick-track{
+    margin-top: 10px;
+
 }
