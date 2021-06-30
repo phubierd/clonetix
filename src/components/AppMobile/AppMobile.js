@@ -1,11 +1,9 @@
 import React from 'react'
 import { Row, Col, Typography, Button, Carousel } from 'antd'
 import './AppMobile.css'
-import mobile from 'asset/img/mobile.png'
 
-import slide1 from 'asset/img/slide1.jpg'
-import slide2 from 'asset/img/slide2.jpg'
-import slide3 from 'asset/img/slide3.jpg'
+
+
 
 
 export default function AppMobile() {
@@ -32,11 +30,11 @@ export default function AppMobile() {
                         <Col span={12} align="center">
                             {/* <div className="appMobile__iphone"></div> */}
                             <div className="appMobile__content">
-                                <img src={mobile} height="100%" width="195px" className="appMobile__iphone" />
+                                <img src='./img/mobile.png' height="100%" width="195px" className="appMobile__iphone" />
                                 <Carousel autoplay dots={false} draggable={true} >
-                                    <div><img className="appMobile__apps" src={slide1} width="185px" height="400px"/></div>
-                                    <div><img className="appMobile__apps" src={slide2} width="185px" height="400px" /></div>
-                                    <div><img className="appMobile__apps" src={slide3} width="185px" height="400px" /></div>
+                                    <div><img className="appMobile__apps" src='./img/slide1.jpg' width="185px" height="400px"/></div>
+                                    <div><img className="appMobile__apps" src='./img/slide2.jpg' width="185px" height="400px" /></div>
+                                    <div><img className="appMobile__apps" src='./img/slide3.jpg' width="185px" height="400px" /></div>
 
                                 </Carousel>
                             </div>

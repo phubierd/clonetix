@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Row, Col, Divider, Select, Button, Space, Card, Rate, Typography, Carousel } from 'antd';
 import './ListFilm.css'
-import playBtn from 'asset/img/play-video.png'
 
 export default function ListFilm() {
     const { Option } = Select;
@@ -11,7 +10,7 @@ export default function ListFilm() {
 
     const { Meta } = Card;
 
-    const { Text, Link, Title } = Typography;
+    const { Title } = Typography;
 
     const onChange = (a, b, c) => {
         console.log(a, b, c)
@@ -67,26 +66,33 @@ export default function ListFilm() {
 
             </Row>
 
-            <Carousel afterChange={onChange} arrows dots={false} >
+            <Row justify="center" >
+            <Col span={16} align="center">
+                <Space size="large">
+                    <span><Title type="danger" strong="true" level={2}>Đang Chiếu</Title></span>
+                    <span><Title strong="true" level={3} >Sắp Chiếu</Title></span>
+
+
+                </Space>
+            </Col>
+            </Row>
+            
+
+            <Carousel afterChange={onChange} arrows dots={false} draggable={true}>
                 <div>
                     <Row justify="center" orientation="center" align="center">
                         <Col span={16} align="center">
-                            <Space size="large">
-                                <span><Title type="danger" strong="true" level={2}>Đang Chiếu</Title></span>
-                                <span><Title strong="true" level={3} >Sắp Chiếu</Title></span>
 
-
-                            </Space>
 
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
                                     <Col span={6} >
                                         <Card className="cardListFilm" bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" loading={true} />}>
                                             <div className="listFilm__overLay" />
-                                            <img className="listFilm__play" src={playBtn} />
+                                            <img className="listFilm__play" src='./img/play-video.png' />
                                             <div className="listFilm__rate">
                                                 <span className="listFilm__text">10 </span>
-                                                <Rate className="listFilm__star" disabled={true} defaultValue={5} style={{color:'#FB4226'}}/>
+                                                <Rate className="listFilm__star" disabled={true} defaultValue={5} style={{ color: '#FB4226' }} />
                                             </div>
                                             <Meta title="Trạng Tí Phiêu Lưu Ký ádădấdcăẻcăewe" description="100 phút" />
                                             {/* title xài if nếu dài hơn bn ký tự thì br */}
@@ -112,7 +118,7 @@ export default function ListFilm() {
                                     <Col span={6} >
                                         <Card className="cardListFilm" bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" loading={true} />}>
                                             <div className="listFilm__overLay" />
-                                            <img className="listFilm__play" src={playBtn} />
+                                            <img className="listFilm__play" src='./img/play-video.png' />
                                             <Meta title="Trạng Tí Phiêu Lưu Ký ádădấdcăẻcăewe" description="100 phút" />
                                             {/* title xài if nếu dài hơn bn ký tự thì br */}
                                         </Card>
@@ -143,19 +149,12 @@ export default function ListFilm() {
                 <div>
                     <Row justify="center" orientation="center" align="center">
                         <Col span={16} align="center">
-                            <Space size="large">
-                                <span><Title type="danger" strong="true" level={2}>Đang Chiếu</Title></span>
-                                <span><Title strong="true" level={3} >Sắp Chiếu</Title></span>
-
-
-                            </Space>
-
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
                                     <Col span={6} >
                                         <Card className="cardListFilm" bordered={false} hoverable cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" loading={true} />}>
                                             <div className="listFilm__overLay" />
-                                            <img className="listFilm__play" src={playBtn} />
+                                            <img className="listFilm__play" src='./img/play-video.png' />
                                             <Meta title="Trạng Tí Phiêu Lưu Ký ádădấdcăẻcăewe" description="100 phút" />
                                             {/* title xài if nếu dài hơn bn ký tự thì br */}
                                         </Card>

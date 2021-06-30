@@ -5,7 +5,6 @@ import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 import './Header.css';
-import logo from 'asset/img/web-logo.png'
 
 export default function HomeTemplate() {
     const { Header, Content, Footer } = Layout;
@@ -19,7 +18,7 @@ export default function HomeTemplate() {
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%'}} >
                 <div className="logo">
-                    <a href="#"><img src={logo} width='50px' height='50px' alt="web-logo"/></a>
+                    <a href="#"><img src='./img/web-logo.png' width='50px' height='50px' alt="web-logo"/></a>
                 </div>
                 <Menu theme="light" mode="horizontal" co>
                     <Menu.Item key="1">Lịch Chiếu</Menu.Item>
