@@ -6,7 +6,7 @@ import './Carousel.css'
 
 export default function MyCarousel(props) {
     const contentStyle = {
-        height: '580px',
+        height: '700px',
         width: '100%',
     };
    
@@ -16,7 +16,7 @@ export default function MyCarousel(props) {
 
         <Content className="site-layout" style={{ marginTop: 64 }}>
             <div className="site-layout-background" style={{ minHeight: 380 }}>
-                <Carousel autoplay arrows draggable={true} >
+                <Carousel autoplay  draggable={true} >
                     <div>
 
                         <div className="carousel__img">

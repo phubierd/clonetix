@@ -101,7 +101,7 @@ export default function Footer() {
 
                 </Col>
             </Row>
-        </Footer >
+        </Footer>
 
 
     )

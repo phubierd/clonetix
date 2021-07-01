@@ -20,7 +20,7 @@ export default function HomeTemplate() {
                 <div className="logo">
                     <a href="#"><img src='./img/web-logo.png' width='50px' height='50px' alt="web-logo"/></a>
                 </div>
-                <Menu theme="light" mode="horizontal" co>
+                <Menu theme="light" mode="horizontal">
                     <Menu.Item key="1">Lịch Chiếu</Menu.Item>
                     <Menu.Item key="2">Cụm Rạp</Menu.Item>
                     <Menu.Item key="3">Tin Tức</Menu.Item>

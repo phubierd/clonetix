@@ -44,6 +44,10 @@
     opacity: 0;
     z-index: 1;
 }
+.cardListFilm .ant-card-body{
+    height: 100px;
+    margin-bottom: 20px;
+}
 
 .ant-card-hoverable:hover .listFilm__play {
     opacity: 1;
