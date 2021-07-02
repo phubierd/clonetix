@@ -16,7 +16,7 @@ function App() {
       <Header />
       <MyCarousel />
       <ListFilm />
-      <ListCinema />
+      {/* <ListCinema /> */}
       <News />
       <AppMobile />
       <Footer />

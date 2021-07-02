@@ -114,5 +114,24 @@
 
 .ant-card-meta-detail{
     position: relative;
+    opacity: 1;
+}
+.cardListFilm.ant-card-hoverable:hover .ant-card-meta-detail{
     opacity: 0;
+}
+.ant-card-body{
+    padding: 0;
+}
+.ListFilm__datVe{
+    position: absolute;
+    bottom: 10%;
+    left:0%;
+    width: 100%;
+    opacity: 0;
+}
+.cardListFilm.ant-card-hoverable:hover .ListFilm__datVe{
+    opacity: 1;
+}
+.ant-card-meta-title{
+    font-size: 18px;
 }

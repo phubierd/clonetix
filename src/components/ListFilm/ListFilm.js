@@ -90,7 +90,7 @@ export default function ListFilm() {
                                                 </div>
                                                 <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
-                                                    <Button type="primary" danger href="#" size="large" style={{width:'100%'}}>
+                                                    <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
                                                         ĐẶT VÉ
                                                     </Button>
                                                 </div>
@@ -115,7 +115,11 @@ export default function ListFilm() {
                                                     <Rate className="listFilm__star" disabled={true} defaultValue={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
                                                 </div>
                                                 <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
-
+                                                <div className="ListFilm__datVe">
+                                                    <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
+                                                        ĐẶT VÉ
+                                                    </Button>
+                                                </div>
                                             </Card>
                                         </Col>
                                     })}
