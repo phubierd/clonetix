@@ -22,3 +22,4 @@ export const getApiFilmAction = () => {
     }
 }
 }
+// https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&soTrang=2&soPhanTuTrenTrang=10
