@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Tabs, Radio, Space, Row, Col } from 'antd';
+import { useDispatch } from 'react-redux';
+import { getApiFilmDetaiAction } from 'redux/action/FilmAction';
 
 
 
-export default function ListCinema() {
+export default function ListCinema(props) {
 
     const { TabPane } = Tabs;
- 
+   
+
+
+   
     return (
 
         <Row align="center">

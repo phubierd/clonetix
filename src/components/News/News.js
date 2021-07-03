@@ -12,7 +12,7 @@ export default function News() {
         <div style={{margin: '20px 0'}}>
             <Row justify="center">
                 <Col span={16}>
-                    <Tabs defaultActiveKey="1" centered>
+                    <Tabs defaultActiveKey="1" centered className="news">
                         <TabPane tab="Điện Ảnh 24h" key="1">
                             <Row gutter={16}>
                                 <Col span={12}>

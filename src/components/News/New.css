@@ -1,4 +1,13 @@
-
+/* hover chu header */
+.news .ant-tabs-tab:hover {
+    color: black;
+    font-size: 25px;
+}
+/* hover chữ */
+.news .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #fb4226;
+    font-size: 25px;
+}
 .news__card .ant-card-body {
     height: 120px;
 }

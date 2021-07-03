@@ -17,7 +17,8 @@
 .ant-tabs-nav-wrap {
     justify-content: center;
 }
-.ant-tabs-tab:hover {
+/* hover chu header */
+.listFilm .ant-tabs-tab:hover {
     color: black;
     font-size: 25px;
 }
@@ -27,7 +28,8 @@
 .ant-tabs-tab-remove:active {
     color: black;
 }
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+/* hover chữ */
+.listFilm .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: #fb4226;
     font-size: 25px;
 }
@@ -88,7 +90,7 @@
     top: 0%;
     left: 0%;
 }
-
+/* ============danh gia  */
 .listFilm__rate {
     position: absolute;
     top: 5%;
@@ -111,7 +113,7 @@
     font-size: 16px;
 }
 
-
+/*===================== button dat ve */
 .ant-card-meta-detail{
     position: relative;
     opacity: 1;

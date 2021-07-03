@@ -3,8 +3,9 @@ import { Row, Col, Divider, Select, Button, Space, Card, Rate, Typography, Tabs 
 import './ListFilm.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction } from 'redux/action/FilmAction';
+import { NavLink } from 'react-router-dom';
 
-export default function ListFilm() {
+export default function ListFilm(props) {
 
     const { arrFilm } = useSelector(state => state.FilmReducer)
 
@@ -74,8 +75,8 @@ export default function ListFilm() {
 
             <Row justify="center" >
                 <Col span={16} align="center" justify="center">
-                    <Tabs defaultActiveKey="1" onChange={callback}>
-                        <TabPane tab="Đang Chiếu" key="1">
+                    <Tabs defaultActiveKey="1" onChange={callback} className="listFilm">
+                        <TabPane tab="Đang Chiếu" key="1" >
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
                                     {arrFilm.splice(11, 12).map((film, index) => {
@@ -90,9 +91,15 @@ export default function ListFilm() {
                                                 </div>
                                                 <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
-                                                    <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
-                                                        ĐẶT VÉ
-                                                    </Button>
+                                                    <NavLink to={`/filmdetail/${film.maPhim}`}>
+                                                        <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
+                                                            ĐẶT VÉ
+                                                        </Button>
+                                                    </NavLink>
+                                                    {/* <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
+                                                        <NavLink to={`/filmdetail/${film.maPhim}`}>ĐẶT VÉ</NavLink>
+                                                    </Button> */}
+                                                    {/* <NavLink to={`/filmdetail/${film.maPhim}`}>DAT VE</NavLink> */}
                                                 </div>
 
                                             </Card>
