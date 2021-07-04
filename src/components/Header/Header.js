@@ -4,8 +4,8 @@ import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
-import './Header.css';
 import { NavLink } from 'react-router-dom';
+import './Header.css';
 
 export default function HomeTemplate() {
     const { Header, Content, Footer } = Layout;
@@ -19,10 +19,10 @@ export default function HomeTemplate() {
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }} >
                 <div className="logo">
-                    <a href="#"><img src='./img/web-logo.png' width='50px' height='50px' alt="web-logo" /></a>
+                    <NavLink to="/"><img src='./img/web-logo.png' width='50px' height='50px' alt="web-logo" /></NavLink>
                 </div>
                 <Menu theme="light" mode="horizontal">
-                    <Menu.Item key="1"> Lịch Chiếu</Menu.Item>
+                    <Menu.Item key="1">Lịch Chiếu</Menu.Item>
                     <Menu.Item key="2">Cụm Rạp</Menu.Item>
                     <Menu.Item key="3">Tin Tức</Menu.Item>
                     <Menu.Item key="4">Ứng Dụng</Menu.Item>

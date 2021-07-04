@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_FILM, SET_FILM_DETAIL } from "redux/type/FilmType"
+import { SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL } from "redux/type/FilmType"
 import { DOMAIN } from "util/setting"
 
 
@@ -8,11 +8,10 @@ import { DOMAIN } from "util/setting"
 export const getApiFilmAction = () => {
     return async dispatch => {
         try {
-            let result = await axios({
+            const result = await axios({
                 url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
                 method: 'get'
             })
-            // console.log(result.data)
             dispatch({
                 type: SET_FILM,
                 dataFilms: result.data
@@ -26,8 +25,8 @@ export const getApiFilmAction = () => {
 export const getApiFilmDetaiAction = (maFilm) => {
     return async dispatch => {
         try {
-            let result = await axios({
-                url: `${DOMAIN}/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maFilm}`,
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maFilm}`,
                 method: 'get'
             })
             // console.log('get api film detail',result.data)
@@ -41,3 +40,23 @@ export const getApiFilmDetaiAction = (maFilm) => {
         }
     }
 }
+
+
+export const getApiChiTietPhongVeAction = (maLichChieu) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+                method: 'get'
+            })
+            // console.log('lay danh sach phong ve',result.data)
+            dispatch({
+                type: SET_CHI_TIET_PHONG_VE,
+                data: result.data
+            })
+        } catch (err) {
+            console.log(err.response?.data)
+        }
+    }
+}
+

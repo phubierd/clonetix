@@ -1,0 +1,36 @@
+.checkOut{
+    height: 100%;
+
+}
+
+.ghe {
+    height: 45px;
+    width: 45px;
+    margin: 10px;
+    background-color: grey;
+    border-color: grey;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.ghe:hover, .ghe:focus{
+    background-color: rgb(158, 7, 78);
+}
+
+.gheVip{
+    background-color: orange;
+    border-color:orange;
+
+}
+
+.gheDaDat{
+    background-color: red !important;
+    cursor: no-drop;
+}
+
+.gheDangDat{
+    background-color: seagreen;
+}
+
+.gheMinhDat{
+    background-color: steelblue;
+}
