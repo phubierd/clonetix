@@ -46,7 +46,7 @@ export default function CheckOut(props) {
             <div style={{ margin: '100px 0' }}>
                 <Row justify="center" align="middle">
                     <Col span={16} style={{ textAlign: 'center' }}>
-                        <img src="https://tix.vn/app/assets/img/icons/screen.png" alt="..." />
+                        <img src="https://tix.vn/app/assets/img/icons/screen.png" alt="..." width='100%'/>
                         <br />
                         {renderGhe()}
                     </Col>
