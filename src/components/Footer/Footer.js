@@ -10,19 +10,22 @@ export default function Footer() {
     const { Footer } = Layout;
     const { Title, Link } = Typography;
     const arrLogoDoiTac = [
-        { hinhAnh: './img/logoIcon/cgv.png' },
-        { hinhAnh: './img/logoIcon/bhd.png' },
-        { hinhAnh: './img/logoIcon/bt.jpg' },
-        { hinhAnh: './img/logoIcon/cinestar.png' },
-        { hinhAnh: './img/logoIcon/cnx.jpg' },
-        { hinhAnh: './img/logoIcon/dcine.png' },
-        { hinhAnh: './img/logoIcon/galaxycine.png' },
-        { hinhAnh: './img/logoIcon/megags.png' },
-        { hinhAnh: './img/logoIcon/payoo.jpg' },
-        { hinhAnh: './img/logoIcon/STARLIGHT.png' },
-        { hinhAnh: './img/logoIcon/VCB.png' },
-        { hinhAnh: './img/logoIcon/VIETTINBANK.png' },
-        { hinhAnh: './img/logoIcon/zalopay_icon.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/cgv.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/bhd.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/galaxycine.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/cinestar.png' },
+        { hinhAnh: 'https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/cnx.jpg' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/dcine.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/bt.jpg' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/megags.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/payoo.jpg' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/STARLIGHT.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/VCB.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/VIETTINBANK.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/zalopay_icon.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/123go.png' },
+        { hinhAnh: 'https://tix.vn/app/assets/img/icons/laban.png' },
     ]
 
     const renderArrLogo = () => {
@@ -64,14 +67,14 @@ export default function Footer() {
                         </Col>
                     <Col span={6}>
                         <p>MOBILE APP</p>
-                        <img src='./img/logoIcon/apple-logo.png' width="25px" height="30px" style={{ marginRight: '5px' }} />
-                        <img src='./img/logoIcon/android-logo.png' width="25px" height="30px" />
+                        <img src='https://tix.vn/app/assets/img/icons/apple-logo.png' width="25px" height="30px" style={{ marginRight: '5px' }} />
+                        <img src='https://tix.vn/app/assets/img/icons/android-logo.png' width="25px" height="30px" />
 
                     </Col>
                     <Col span={6}>
                         <p>SOCIAL</p>
-                        <img src='./img/logoIcon/facebook-logo.png' width="30px" height="30px" style={{ marginRight: '5px' }} />
-                        <img src='./img/logoIcon/zalo-logo.png' width="30px" height="30px" />
+                        <img src='https://tix.vn/app/assets/img/icons/facebook-logo.png' width="30px" height="30px" style={{ marginRight: '5px' }} />
+                        <img src='https://tix.vn/app/assets/img/icons/zalo-logo.png' width="30px" height="30px" />
                     </Col>
                     </Row>
 
@@ -80,7 +83,7 @@ export default function Footer() {
 
                 <Row justify="center">
                     <Col span={4}>
-                        <img src='./img/zion-logo.jpg' width="80px" />
+                        <img src='https://tix.vn/app/assets/img/icons/zion-logo.jpg' width="80px" />
                     </Col>
                     <Col span={16}>
                         <Title level={4}>
@@ -95,7 +98,7 @@ export default function Footer() {
                         <p>Email: <Link >support@tix.vn</Link></p>
                     </Col>
                     <Col span={4}>
-                        <img src='./img/dathongbao.png' width="130px" height="50px" />
+                        <img src='https://s3img.vcdn.vn/123phim/2020/03/d1e6bd560daa9e20131ea8a0f62e87f8.png' width="130px" height="50px" />
                     </Col>
                 </Row>
 

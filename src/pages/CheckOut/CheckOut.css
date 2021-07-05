@@ -2,6 +2,22 @@
     height: 100%;
 
 }
+.checkOut__text{
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin: 20px 0;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+.checkOut__btn{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    
+}
 
 .ghe {
     height: 45px;
@@ -11,10 +27,11 @@
     border-color: grey;
     border-radius: 10px;
     cursor: pointer;
+    color: blanchedalmond;
 }
-.ghe:hover, .ghe:focus{
-    background-color: rgb(158, 7, 78);
-}
+/* .ghe:hover, .ghe:focus{
+    background-color: seagreen;
+} */
 
 .gheVip{
     background-color: orange;
@@ -28,9 +45,11 @@
 }
 
 .gheDangDat{
-    background-color: seagreen;
+    background-color: steelblue;
+
 }
 
 .gheMinhDat{
-    background-color: steelblue;
+    background-color: seagreen;
+
 }

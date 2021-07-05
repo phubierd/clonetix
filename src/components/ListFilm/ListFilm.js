@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Divider, Select, Button, Space, Card, Rate, Typography, Tabs } from 'antd';
+import { Row, Col, Select, Button, Card, Rate, Tabs } from 'antd';
 import './ListFilm.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction } from 'redux/action/FilmAction';
@@ -11,18 +11,17 @@ export default function ListFilm(props) {
 
     const dispatch = useDispatch();
 
-    const { Option } = Select;
-    function handleChange(value) {
-        console.log(`selected ${value}`);
-    }
+    // const { Option } = Select;
+    // function handleChange(value) {
+    //     console.log(`selected ${value}`);
+    // }
 
     const { Meta } = Card;
-    const { Title } = Typography;
     const { TabPane } = Tabs;
 
-    const onChange = (a, b, c) => {
-        console.log(a, b, c)
-    }
+    // const onChange = (a, b, c) => {
+    //     console.log(a, b, c)
+    // }
 
 
     const callback = (key) => {
@@ -30,7 +29,7 @@ export default function ListFilm(props) {
     }
 
     useEffect(() => {
-        dispatch(getApiFilmAction(1))
+        dispatch(getApiFilmAction())
         // console.log(arrFilm)
     }, [])
 
@@ -92,7 +91,7 @@ export default function ListFilm(props) {
                                                 <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
                                                     <NavLink to={`/filmdetail/${film.maPhim}`}>
-                                                        <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
+                                                        <Button type="primary" danger size="large" style={{ width: '100%' }}>
                                                             ĐẶT VÉ
                                                         </Button>
                                                     </NavLink>

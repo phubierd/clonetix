@@ -19,7 +19,7 @@ export default function HomeTemplate() {
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }} >
                 <div className="logo">
-                    <NavLink to="/"><img src='./img/web-logo.png' width='50px' height='50px' alt="web-logo" /></NavLink>
+                    <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" /></NavLink>
                 </div>
                 <Menu theme="light" mode="horizontal">
                     <Menu.Item key="1">Lịch Chiếu</Menu.Item>
