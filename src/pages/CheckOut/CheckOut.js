@@ -18,7 +18,7 @@ export default function CheckOut(props) {
 
     useEffect(() => {
         dispatch(getApiChiTietPhongVeAction(props.match.params.id));
-        // console.log('chi tiet phong ve checkout', chiTietPhongVe)
+        console.log('chi tiet phong ve checkout', chiTietPhongVe)
     }, [])
 
     // console.log('danhSachGhe DD',danhSachGheDangDat)
@@ -79,7 +79,10 @@ export default function CheckOut(props) {
                         <div className="checkOut__thongTin">
                             <Row>
                                 <Col span={16}>
-                                    <p>Ghế: {_.sortBy(danhSachGheDangDat,['stt']).map((gheDD, index) => {
+                                    {/* {
+                                        console.log(_.sortBy(danhSachGheDangDat,['stt']),'sort')
+                                    } */}
+                                    <p>Ghế: {danhSachGheDangDat.sort((a,b)=>a.stt-b.stt).map((gheDD, index) => {
                                         return <span key={index} style={{ color: 'red', fontWeight: '600' }}> {gheDD.stt} </span>
                                     })}</p>
                                 </Col>

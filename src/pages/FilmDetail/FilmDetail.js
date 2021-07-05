@@ -39,7 +39,7 @@ export default function FilmDetail(props) {
                             <h2 style={{color:'#5f5139'}}>Nội Dung Phim:</h2>
                             <p>{thongTinChiTiet?.moTa}</p>
 
-                            <h2 style={{color:'#5f5139'}}>Đánh Giá: <Rate disabled allowHalf defaultValue={(thongTinChiTiet?.danhGia)/2} /></h2>
+                            <h2 style={{color:'#5f5139'}}>Đánh Giá: <Rate disabled allowHalf value={(thongTinChiTiet?.danhGia)/2} /></h2>
                         </Col>
                     </Row>
                 </Col>

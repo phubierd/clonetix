@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Select, Button, Card, Rate, Tabs } from 'antd';
+import { Row, Col, Select, Button, Card, Rate, Tabs, Divider } from 'antd';
 import './ListFilm.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction } from 'redux/action/FilmAction';
@@ -11,17 +11,17 @@ export default function ListFilm(props) {
 
     const dispatch = useDispatch();
 
-    // const { Option } = Select;
-    // function handleChange(value) {
-    //     console.log(`selected ${value}`);
-    // }
+    const { Option } = Select;
+    function handleChange(value) {
+        console.log(`selected ${value}`);
+    }
 
     const { Meta } = Card;
     const { TabPane } = Tabs;
 
-    // const onChange = (a, b, c) => {
-    //     console.log(a, b, c)
-    // }
+    const onChange = (a, b, c) => {
+        console.log(a, b, c)
+    }
 
 
     const callback = (key) => {
@@ -35,7 +35,7 @@ export default function ListFilm(props) {
 
     return (
         <>
-            {/* <Row justify="center" orientation="center" align="center">
+            <Row justify="center" orientation="center" align="center">
                 <Col span={16} align="center">
                     <Divider orientation="center">
                         <Select defaultValue="1" style={{ width: 300 }} onChange={handleChange}>
@@ -70,7 +70,7 @@ export default function ListFilm(props) {
 
                     </Divider></Col>
 
-            </Row> */}
+            </Row>
 
             <Row justify="center" >
                 <Col span={16} align="center" justify="center">
@@ -86,7 +86,7 @@ export default function ListFilm(props) {
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
-                                                    <Rate className="listFilm__star" disabled={true} defaultValue={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
+                                                    <Rate className="listFilm__star" disabled={true} value={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
                                                 </div>
                                                 <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
@@ -118,7 +118,7 @@ export default function ListFilm(props) {
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
-                                                    <Rate className="listFilm__star" disabled={true} defaultValue={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
+                                                    <Rate className="listFilm__star" disabled={true} value={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
                                                 </div>
                                                 <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
