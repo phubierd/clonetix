@@ -35,7 +35,7 @@ export default function ListCinema(props) {
                                             <div>
                                                 <Row>
                                                     {cumRap.lichChieuPhim.splice(0, 12).map((lichChieu, index) => {
-                                                        return <div key={index}>
+                                                        return <div key={index} >
                                                             {/* {lichChieu.maLichChieu} */}
                                                             <NavLink to={`/checkout/${lichChieu.maLichChieu}`}>
                                                                 <Button type="primary" danger style={{margin:'3px'}}>

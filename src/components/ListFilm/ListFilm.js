@@ -78,7 +78,7 @@ export default function ListFilm(props) {
                         <TabPane tab="Đang Chiếu" key="1" >
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
-                                    {arrFilm.splice(11, 12).map((film, index) => {
+                                    {arrFilm.splice(5, 12).map((film, index) => {
                                         return <Col span={6} key={index}>
                                             <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' />}>
                                                 <div className="listFilm__overLay" />
@@ -86,9 +86,9 @@ export default function ListFilm(props) {
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
-                                                    <Rate className="listFilm__star" disabled={true} value={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
+                                                    <Rate className="listFilm__star" disabled={true} allowHalf value={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
                                                 </div>
-                                                <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
+                                                <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '. . .' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
                                                     <NavLink to={`/filmdetail/${film.maPhim}`}>
                                                         <Button type="primary" danger size="large" style={{ width: '100%' }}>

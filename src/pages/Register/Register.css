@@ -1,0 +1,20 @@
+.ant-drawer-content-wrapper{
+    width: 550px;
+}
+.ant-form-item-label{
+    text-align: start;
+}
+
+
+
+.ant-drawer-title{
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+.ant-drawer-header{
+    background-color: beige;
+}
+.ant-drawer-body{
+    background-color: beige;
+}

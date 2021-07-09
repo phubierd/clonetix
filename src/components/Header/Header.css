@@ -17,6 +17,7 @@
   
   .ant-layout-header {
     display: flex;
+    z-index: 2 !important;
     background-color: #fff;
     justify-content: space-between;
   }
@@ -59,3 +60,8 @@
     border-bottom: none;
   }
   
+
+  /* style arrow down */
+  .anticon .anticon-down{
+    color: black;
+  }

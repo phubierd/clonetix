@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getApiChiTietPhongVeAction } from 'redux/action/FilmAction'
 import { DAT_GHE } from 'redux/type/FilmType'
 import _ from 'lodash'
+import { USER_LOGIN } from 'util/setting'
+import { Redirect } from 'react-router'
 
 export default function CheckOut(props) {
 
@@ -22,6 +24,12 @@ export default function CheckOut(props) {
     }, [])
 
     // console.log('danhSachGhe DD',danhSachGheDangDat)
+
+    if (!localStorage.getItem(USER_LOGIN)){
+        return <Redirect to="/userlogin"/>
+    }
+
+
     const renderGhe = () => {
         return danhSachGhe?.map((ghe, index) => {
 
