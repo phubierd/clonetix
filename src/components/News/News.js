@@ -84,7 +84,7 @@ export default function News() {
                                 <Col span={8}>
                                     <Row gutter={24} >
                                         <Col span={4}>
-                                            <img src="./img/news/khai-truong-rap-xin-gia-ngon-chuan-xi-tai-sai-gon-16115477671555.jpg" height="50px" width="50px" />
+                                            <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" />
                                         </Col>
                                         <Col span={20}>
                                             <p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p>
@@ -189,7 +189,7 @@ export default function News() {
                                 <Col span={8}>
                                     <Row gutter={24} >
                                         <Col span={4}>
-                                            <img src="./img/news/khai-truong-rap-xin-gia-ngon-chuan-xi-tai-sai-gon-16115477671555.jpg" height="50px" width="50px" />
+                                            <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" />
                                         </Col>
                                         <Col span={20}>
                                             <p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p>

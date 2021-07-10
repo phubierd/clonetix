@@ -6,7 +6,7 @@ import './Carousel.css'
 
 export default function MyCarousel(props) {
     const contentStyle = {
-        height: '700px',
+        height: '800px',
         width: '100%',
     };
    
@@ -16,24 +16,24 @@ export default function MyCarousel(props) {
 
         <Content className="site-layout" style={{ marginTop: 64 }}>
             <div className="site-layout-background" style={{ minHeight: 380 }}>
-                <Carousel autoplay  draggable={true} >
+                <Carousel autoplay  draggable={true} fade={true}>
                     <div>
 
                         <div className="carousel__img">
-                            <img src='./img/banTay-carousel.png' style={contentStyle}></img>
+                            <img src='./img/carousel/blackwidow1_1622435963567.jpg' style={contentStyle}></img>
                             <img className="playBtn" src='./img/play-video.png' />
                         </div>
 
                     </div>
                     <div>
                         <div className="carousel__img">
-                            <img src='./img/latMat-carousel.jpg' style={contentStyle}></img>
+                            <img src='./img/carousel/review-phim-loki-poster-phim-elle-man-cover-photo.jpeg' style={contentStyle}></img>
                             <img className="playBtn" src='./img/play-video.png' />
                         </div>
                     </div>
                     <div>
                         <div className="carousel__img">
-                            <img src='./img/trangTi-carousel.jpg' style={contentStyle}></img>
+                            <img src='./img/carousel/WandaVision-Character-Posters-And-Key-Art.jpg' style={contentStyle}></img>
                             <img className="playBtn" src='./img/play-video.png' />
                         </div>
                     </div>
