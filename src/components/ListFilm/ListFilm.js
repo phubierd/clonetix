@@ -78,7 +78,7 @@ export default function ListFilm(props) {
                         <TabPane tab="Đang Chiếu" key="1" >
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
-                                    {arrFilm.splice(3, 12).map((film, index) => {
+                                    {arrFilm.slice(2, 14).map((film, index) => {
                                         return <Col span={6} key={index}>
                                             <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..."/>}>
                                                 <div className="listFilm__overLay" />
@@ -110,7 +110,7 @@ export default function ListFilm(props) {
                         <TabPane tab="Sắp Chiếu" key="2">
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
-                                    {arrFilm.splice(24, 12).map((film, index) => {
+                                    {arrFilm.splice(14, 12).map((film, index) => {
                                         return <Col span={6} key={index}>
                                             <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' />}>
                                                 <div className="listFilm__overLay" />

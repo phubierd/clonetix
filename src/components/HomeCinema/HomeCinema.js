@@ -22,8 +22,7 @@ export default function HomeCinema() {
 
     useEffect(() => {
         dispatch(getCinemaApiAction())
-        // dispatch(getListRapAction('CGV'))
-        // dispatch(getListRapAction('BHDStar'))
+        dispatch(getListRapAction('BHDStar'))
     }, [])
     return (
         <div>
