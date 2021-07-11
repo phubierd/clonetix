@@ -23,13 +23,13 @@ export default function ListCinema(props) {
                     {heThongRapChieu?.map((htr, index) => {
                         return <TabPane tab={
                             <div>
-                                <img src={htr?.logo} width="50px" height="50px" />
+                                <img src={htr?.logo} width="50px" height="50px" alt="..."/>
                             </div>} key={index}>
                             {htr.cumRapChieu?.map((cumRap, index) => {
                                 return <div key={index}>
                                     <Row justify="start" style={{ margin: '20px 0' }}>
                                         <Col span={2} align="middle">
-                                            <img src='https://picsum.photos/50/50' style={{ borderRadius: '50%' }} />
+                                            <img src='https://picsum.photos/50/50' style={{ borderRadius: '50%' }} alt="..."/>
                                         </Col>
                                         <Col span={11}>{cumRap.tenCumRap}
                                             <div>
@@ -47,9 +47,7 @@ export default function ListCinema(props) {
                                                 </Row>
                                             </div>
                                         </Col>
-
                                     </Row>
-
                                 </div>
                             })}
                         </TabPane>

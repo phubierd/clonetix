@@ -7,6 +7,7 @@ import MyCarousel from '../../components/Carousel/Carousel'
 import ListFilm from '../../components/ListFilm/ListFilm';
 import AppMobile from '../../components/AppMobile/AppMobile';
 import News from 'components/News/News';
+import HomeCinema from 'components/HomeCinema/HomeCinema';
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
             <Header />
             <MyCarousel />
             <ListFilm />
+            <HomeCinema/>
             <News />
             <AppMobile />
             <Footer />

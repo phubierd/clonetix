@@ -78,11 +78,11 @@ export default function ListFilm(props) {
                         <TabPane tab="Đang Chiếu" key="1" >
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
-                                    {arrFilm.splice(5, 12).map((film, index) => {
+                                    {arrFilm.splice(3, 12).map((film, index) => {
                                         return <Col span={6} key={index}>
-                                            <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' />}>
+                                            <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..."/>}>
                                                 <div className="listFilm__overLay" />
-                                                <img className="listFilm__play" src='./img/play-video.png' />
+                                                <img className="listFilm__play" src='./img/play-video.png' alt="..."/>
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
@@ -114,7 +114,7 @@ export default function ListFilm(props) {
                                         return <Col span={6} key={index}>
                                             <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' />}>
                                                 <div className="listFilm__overLay" />
-                                                <img className="listFilm__play" src='./img/play-video.png' />
+                                                <img className="listFilm__play" src='./img/play-video.png' alt="..."/>
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />

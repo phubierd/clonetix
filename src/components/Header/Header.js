@@ -1,25 +1,35 @@
 import React from 'react'
-import { Layout, Menu, Avatar, Dropdown, Select } from 'antd';
+import { Layout, Menu, Avatar, Dropdown, Select, Button } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import { useSelector } from 'react-redux';
 import _ from 'lodash'
-
+import { ACCESSTOKEN, USER_LOGIN } from 'util/setting';
 
 export default function HomeTemplate() {
 
     //connect reducer lay thong tin login
     const { userLogin } = useSelector(state => state.UserReducer)
-    console.log('userLogin', userLogin)
-
+    // console.log('userLogin', userLogin)
 
     const { Header } = Layout;
     const { Option } = Select;
 
     function handleChange(value) {
         console.log(`selected ${value}`);
+    }
+
+    const reloadPage =()=>{
+        window.location.reload()
+    }
+
+    const logOut = () => {
+        // console.log(USER_LOGIN,'clicking ...')
+        localStorage.removeItem(USER_LOGIN);
+        localStorage.removeItem(ACCESSTOKEN);
+        window.location.reload();
     }
 
     const menu = (
@@ -31,9 +41,10 @@ export default function HomeTemplate() {
             </Menu.Item>
             <Menu.Divider />
             <Menu.Item key="1">
-                <NavLink target="_blank" rel="noopener noreferrer" to="https://www.aliyun.com">
-                    Đăng Xuất
-                </NavLink>
+                    <Button type="primary" danger onClick={()=>{
+                        console.log('clicking...')
+                                logOut()
+                    }}>Đăng Xuất</Button>
             </Menu.Item>
         </Menu>
     );
@@ -43,7 +54,9 @@ export default function HomeTemplate() {
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                 <div className="logo">
-                    <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" /></NavLink>
+                    <img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{cursor:'pointer'}} onClick={()=>{
+                        reloadPage()
+                    }}/>
                 </div>
                 <Menu theme="light" mode="horizontal">
                     <Menu.Item key="1">Lịch Chiếu</Menu.Item>
@@ -58,7 +71,7 @@ export default function HomeTemplate() {
                         {
                             _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
                                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                    <img src={`https://avatars.dicebear.com/api/human/${userLogin.taiKhoan}.svg`} width="30px" height="30px" />Hi ! {userLogin.taiKhoan} <DownOutlined />
+                                    <img src={`https://avatars.dicebear.com/api/human/${userLogin.taiKhoan}.svg`} width="30px" height="30px" alt="..."/>Hi ! {userLogin.taiKhoan} <DownOutlined />
                                 </a>
                             </Dropdown>
                         }

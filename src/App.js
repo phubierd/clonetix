@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './pages/Home/Home';
 // import HomeTemplate from './template/HomeTemplate/HomeTemplate';
-import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch, Router } from 'react-router-dom';
 import FilmDetail from 'pages/FilmDetail/FilmDetail';
 import CheckOut from 'pages/CheckOut/CheckOut';
 import UserLogin from 'pages/UserLogin/UserLogin';

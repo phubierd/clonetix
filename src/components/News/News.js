@@ -7,6 +7,7 @@ export default function News() {
     const { TabPane } = Tabs;
     const { Meta } = Card;
     const style = { background: '#0092ff', padding: '8px 0' }
+    
 
     return (
         <div style={{ margin: '20px 0' }}>
@@ -84,7 +85,7 @@ export default function News() {
                                 <Col span={8}>
                                     <Row gutter={24} >
                                         <Col span={4}>
-                                            <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" />
+                                            <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p>
@@ -92,7 +93,7 @@ export default function News() {
                                     </Row>
                                     <Row gutter={24} style={{ marginTop: 10 }}>
                                         <Col span={4}>
-                                            <img src="/img/news/boc-tem-to-hop-giai-tri-moi-toanh-cua-gioi-ha-thanh-16056939435004.png" height="50px" width="50px" />
+                                            <img src="/img/news/boc-tem-to-hop-giai-tri-moi-toanh-cua-gioi-ha-thanh-16056939435004.png" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>“Bóc tem” tổ hợp giải trí mới toanh của giới Hà Thành</p>
@@ -100,7 +101,7 @@ export default function News() {
                                     </Row>
                                     <Row gutter={24} style={{ marginTop: 10 }}>
                                         <Col span={4}>
-                                            <img src="/img/news/tiec-trang-mau-chinh-thuc-can-moc-100-ty-chi-sau-2-tuan-cong-chieu-16043751284117.png" height="50px" width="50px" />
+                                            <img src="/img/news/tiec-trang-mau-chinh-thuc-can-moc-100-ty-chi-sau-2-tuan-cong-chieu-16043751284117.png" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>Tiệc Trăng Máu chính thức cán mốc 100 tỷ chỉ sau 2 tuần công chiếu </p>
@@ -108,7 +109,7 @@ export default function News() {
                                     </Row>
                                     <Row gutter={24} style={{ marginTop: 10 }}>
                                         <Col span={4}>
-                                            <img src="/img/news/ngo-thanh-van-chinh-thuc-khoi-dong-cuoc-thi-thiet-ke-trang-phuc-cho-sieu-anh-hung-dau-tien-cua-viet-nam-vinaman-16041584850247.jpg" height="50px" width="50px" />
+                                            <img src="/img/news/ngo-thanh-van-chinh-thuc-khoi-dong-cuoc-thi-thiet-ke-trang-phuc-cho-sieu-anh-hung-dau-tien-cua-viet-nam-vinaman-16041584850247.jpg" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>NGÔ THANH VÂN CHÍNH THỨC KHỞI ĐỘNG CUỘC THI THIẾT KẾ TRANG PHỤC CHO SIÊU ANH HÙNG ĐẦU TIÊN CỦA VIỆT NAM – VINAMAN</p>
@@ -189,7 +190,7 @@ export default function News() {
                                 <Col span={8}>
                                     <Row gutter={24} >
                                         <Col span={4}>
-                                            <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" />
+                                            <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p>
@@ -197,7 +198,7 @@ export default function News() {
                                     </Row>
                                     <Row gutter={24} style={{ marginTop: 10 }}>
                                         <Col span={4}>
-                                            <img src="/img/news/boc-tem-to-hop-giai-tri-moi-toanh-cua-gioi-ha-thanh-16056939435004.png" height="50px" width="50px" />
+                                            <img src="/img/news/boc-tem-to-hop-giai-tri-moi-toanh-cua-gioi-ha-thanh-16056939435004.png" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>“Bóc tem” tổ hợp giải trí mới toanh của giới Hà Thành</p>
@@ -205,7 +206,7 @@ export default function News() {
                                     </Row>
                                     <Row gutter={24} style={{ marginTop: 10 }}>
                                         <Col span={4}>
-                                            <img src="/img/news/tiec-trang-mau-chinh-thuc-can-moc-100-ty-chi-sau-2-tuan-cong-chieu-16043751284117.png" height="50px" width="50px" />
+                                            <img src="/img/news/tiec-trang-mau-chinh-thuc-can-moc-100-ty-chi-sau-2-tuan-cong-chieu-16043751284117.png" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>Tiệc Trăng Máu chính thức cán mốc 100 tỷ chỉ sau 2 tuần công chiếu </p>
@@ -213,7 +214,7 @@ export default function News() {
                                     </Row>
                                     <Row gutter={24} style={{ marginTop: 10 }}>
                                         <Col span={4}>
-                                            <img src="/img/news/ngo-thanh-van-chinh-thuc-khoi-dong-cuoc-thi-thiet-ke-trang-phuc-cho-sieu-anh-hung-dau-tien-cua-viet-nam-vinaman-16041584850247.jpg" height="50px" width="50px" />
+                                            <img src="/img/news/ngo-thanh-van-chinh-thuc-khoi-dong-cuoc-thi-thiet-ke-trang-phuc-cho-sieu-anh-hung-dau-tien-cua-viet-nam-vinaman-16041584850247.jpg" height="50px" width="50px" alt="..."/>
                                         </Col>
                                         <Col span={20}>
                                             <p>NGÔ THANH VÂN CHÍNH THỨC KHỞI ĐỘNG CUỘC THI THIẾT KẾ TRANG PHỤC CHO SIÊU ANH HÙNG ĐẦU TIÊN CỦA VIỆT NAM – VINAMAN</p>

@@ -49,10 +49,10 @@ export default function AppMobile() {
                         <Col span={12} align="center">
                             {/* <div className="appMobile__iphone"></div> */}
                             <div className="appMobile__content">
-                                <img src='./img/mobile.png' height="100%" width="195px" className="appMobile__iphone" />
+                                <img src='./img/mobile.png' height="100%" width="195px" className="appMobile__iphone" alt="..."/>
                                 <Carousel autoplay dots={false} draggable={true} >
                                 {arrSlide.map((item,index)=>{
-                                    return <div><img className="appMobile__apps" src={item.hinhAnh} width="185px" height="400px"/></div>
+                                    return <div><img className="appMobile__apps" src={item.hinhAnh} width="185px" height="400px" alt="..."/></div>
                                 })}
                                     {/* <div><img className="appMobile__apps" src='./img/slide1.jpg' width="185px" height="400px"/></div>
                                     <div><img className="appMobile__apps" src='./img/slide2.jpg' width="185px" height="400px" /></div>

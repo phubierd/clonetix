@@ -1,4 +1,4 @@
-import { DANG_NHAP } from "redux/type/UserType";
+import { DANG_NHAP, LOGOUT } from "redux/type/UserType";
 import { USER_LOGIN } from "util/setting";
 
 
@@ -13,12 +13,18 @@ const initialState = {
 }
 
 export const UserReducer = (state = initialState, action) => {
+    // console.log(state.userLogin,'userlogin')
     switch (action.type) {
 
         case DANG_NHAP: {
             state.userLogin = action.data
             return { ...state }
         }
+
+        // case LOGOUT: {
+        //     state.userLogin = '';
+        //     return { ...state }
+        // }
 
 
         default:

@@ -28,12 +28,6 @@ export default function Footer() {
         { hinhAnh: 'https://tix.vn/app/assets/img/icons/laban.png' },
     ]
 
-    const renderArrLogo = () => {
-        return arrLogoDoiTac.map((item, index) => {
-
-        })
-    }
-
     return (
 
         <Footer className="myFooter">
@@ -59,7 +53,7 @@ export default function Footer() {
                             {arrLogoDoiTac.map((item, index) => {
                                 return  <>
                                 
-                                <img src={item.hinhAnh} width="30px" height="30px" key={index} style={{ backgroundColor: '#fff', borderRadius: '50%', marginRight: '15px',marginBottom:'15px' }}/>
+                                <img src={item.hinhAnh} width="30px" height="30px" key={index} style={{ backgroundColor: '#fff', borderRadius: '50%', marginRight: '15px',marginBottom:'15px' }} alt="..."/>
                                 {(index+1) % 4 === 0 ? <br/> : ''}
                                 </>
                                 
@@ -67,14 +61,14 @@ export default function Footer() {
                         </Col>
                     <Col span={6}>
                         <p>MOBILE APP</p>
-                        <img src='https://tix.vn/app/assets/img/icons/apple-logo.png' width="25px" height="30px" style={{ marginRight: '5px' }} />
-                        <img src='https://tix.vn/app/assets/img/icons/android-logo.png' width="25px" height="30px" />
+                        <img src='https://tix.vn/app/assets/img/icons/apple-logo.png' width="25px" height="30px" style={{ marginRight: '5px' }} alt="..." />
+                        <img src='https://tix.vn/app/assets/img/icons/android-logo.png' width="25px" height="30px" alt="..." />
 
                     </Col>
                     <Col span={6}>
                         <p>SOCIAL</p>
-                        <img src='https://tix.vn/app/assets/img/icons/facebook-logo.png' width="30px" height="30px" style={{ marginRight: '5px' }} />
-                        <img src='https://tix.vn/app/assets/img/icons/zalo-logo.png' width="30px" height="30px" />
+                        <img src='https://tix.vn/app/assets/img/icons/facebook-logo.png' width="30px" height="30px" style={{ marginRight: '5px' }} alt="..."/>
+                        <img src='https://tix.vn/app/assets/img/icons/zalo-logo.png' width="30px" height="30px" alt="..."/>
                     </Col>
                     </Row>
 
@@ -83,7 +77,7 @@ export default function Footer() {
 
                 <Row justify="center">
                     <Col span={4}>
-                        <img src='https://tix.vn/app/assets/img/icons/zion-logo.jpg' width="80px" />
+                        <img src='https://tix.vn/app/assets/img/icons/zion-logo.jpg' width="80px" alt="..."/>
                     </Col>
                     <Col span={16}>
                         <Title level={4}>
@@ -98,7 +92,7 @@ export default function Footer() {
                         <p>Email: <Link >support@tix.vn</Link></p>
                     </Col>
                     <Col span={4}>
-                        <img src='https://s3img.vcdn.vn/123phim/2020/03/d1e6bd560daa9e20131ea8a0f62e87f8.png' width="130px" height="50px" />
+                        <img src='https://s3img.vcdn.vn/123phim/2020/03/d1e6bd560daa9e20131ea8a0f62e87f8.png' width="130px" height="50px" alt="..."/>
                     </Col>
                 </Row>
 
