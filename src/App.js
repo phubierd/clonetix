@@ -10,6 +10,9 @@ import Register from 'pages/Register/Register';
 
 //thư viện giúp chuyển hướng trang từ các component k có props truyền vào match or history
 import { createBrowserHistory } from 'history'
+import AdminTemplate from 'pages/AdminTemplate/AdminTemplate';
+import QuanLyPhim from 'components/QuanLyPhim/QuanLyPhim';
+import QuanLyUser from 'components/QuanLyUser/QuanLyUser';
 
 export const history = createBrowserHistory()
 
@@ -24,6 +27,9 @@ function App() {
         <Route exact path="/userlogin" component={UserLogin} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Home} />
+        {/* <Route exact path="/admin" component={AdminTemplate} /> */}
+        <AdminTemplate exact path="/quanlyphim" component={QuanLyPhim}/>
+        <AdminTemplate exact path="/quanlynguoidung" component={QuanLyUser}/>
       </Switch>
     </Router>
 

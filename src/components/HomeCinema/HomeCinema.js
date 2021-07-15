@@ -6,13 +6,13 @@ import { getCinemaApiAction, getListRapAction } from 'redux/action/CinemaAction'
 
 
 
-export default function HomeCinema() {
+export default function HomeCinema(props) {
     const { arrCinema } = useSelector(state => state.CinemaReducer)
     const { arrRap } = useSelector(state => state.CinemaReducer)
     const dispatch = useDispatch()
     const { TabPane } = Tabs;
-    console.log('arrCinema', arrCinema)
-    console.log('arrRap', arrRap)
+    // console.log('arrCinema', arrCinema)
+    // console.log('arrRap', arrRap)
 
     const handleClick = (maHeThongRap) => {
 
@@ -25,7 +25,7 @@ export default function HomeCinema() {
         dispatch(getListRapAction('BHDStar'))
     }, [])
     return (
-        <div>
+        <div id="cumRapID" ref={props.myRef}>
             <Row justify="center">
                 <Col span={16}>
                     <Space style={{ marginBottom: 24 }}>
@@ -36,17 +36,28 @@ export default function HomeCinema() {
                         {arrCinema.map((rap, index) => {
                             return <TabPane tab={
                                 <div>
-                                    <img src={rap.logo} alt="logo" width="50px" height="50px" onClick={() => { handleClick(rap.maHeThongRap) }}/>
+                                    <img src={rap.logo} alt="logo" width="50px" height="50px" onClick={() => { handleClick(rap.maHeThongRap) }} />
                                 </div>
                             } key={index}>
                                 {/* Content of Tab 1 */}
                                 <div>
-                                    {arrRap.map((item,index)=>{
-                                        return <div key={index}>
-                                            {item.tenCumRap}
-                                            <div>
-                                                {item.diaChi}asdasd
-                                            </div>
+                                    {arrRap.map((item, index) => {
+                                        return <div key={index} style={{ margin: '10px' }}>
+                                            <Row justify="center">
+                                                <Col span={4} align="middle">
+                                                    <img src="https://picsum.photos/200/200" width='50px' height='50px' alt="..." style={{ marginRight: '10px', alignSelf: 'center', borderRadius: '10px' }} />
+
+                                                </Col>
+                                                <Col span={20}>
+                                                    <div>
+                                                        <h2 style={{ color: 'rgb(144 24 24 / 85%)' }}>{item.tenCumRap}</h2>
+                                                        <p>
+                                                            Địa Chỉ: {item.diaChi}asdasd
+                                                        </p>
+                                                    </div>
+                                                </Col>
+
+                                            </Row>
                                         </div>
                                     })}
                                 </div>

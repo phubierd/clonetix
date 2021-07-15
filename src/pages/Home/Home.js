@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useRef } from 'react'
 import 'antd/dist/antd.css';
 import './Home.css';
 import Header from '../../components/Header/Header'
@@ -11,14 +11,20 @@ import HomeCinema from 'components/HomeCinema/HomeCinema';
 
 export default function Home() {
 
-
-
+    // const listFilmRef = useRef(null)
+    // const homeCinemaRef = useRef(null)
+    // const newsRef = useRef(null)
+    // const appMobileRef = useRef(null)
+    const arrStt= [1,2,3,4]
+    const myRef = useRef(null)
+    const executeScroll = () => myRef.current.scrollIntoView()
+    console.log(myRef)
     return (
         <Fragment>
-            <Header />
+            <Header executeScroll={executeScroll} />
             <MyCarousel />
-            <ListFilm />
-            <HomeCinema/>
+            <ListFilm myRef={myRef} />
+            <HomeCinema myRef={myRef}/>
             <News />
             <AppMobile />
             <Footer />

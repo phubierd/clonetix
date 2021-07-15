@@ -64,6 +64,8 @@
     position: relative;
 }
 
+
+/* ======= play */
 .cardListFilm .listFilm__play {
     position: absolute;
     top: 30%;
@@ -71,6 +73,7 @@
     transform: translateX(-50%);
     opacity: 0;
     z-index: 1;
+    background-color: rgba(255, 255, 255, 0.481);
 }
 .cardListFilm .ant-card-body {
     height: 100px;
@@ -80,6 +83,7 @@
 .ant-card-hoverable:hover .listFilm__play {
     opacity: 1;
     transition: all 500ms;
+    border-radius: 50%;
 }
 
 .ant-card-hoverable:hover .listFilm__overLay {
@@ -136,4 +140,11 @@
 }
 .ant-card-meta-title{
     font-size: 18px;
+}
+
+
+/* ===========modal trailer */
+.listFilm__modal .ant-modal-body{
+    padding: 0 ; 
+    height: 500px ;
 }

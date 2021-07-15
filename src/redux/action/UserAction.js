@@ -17,7 +17,9 @@ import { ACCESSTOKEN, DOMAIN, USER_LOGIN } from "util/setting"
 //   }
 
 import { history } from "App"
-import { DANG_NHAP } from "redux/type/UserType"
+import { DANG_NHAP, THONG_TIN_TAI_KHOAN } from "redux/type/UserType"
+import { XOA_DANH_SACH_GHE_DANG_DAT } from "redux/type/FilmType"
+import { getApiChiTietPhongVeAction } from "./FilmAction"
 
 export const dangKyAction = (thongTinNguoiDung) => {
     return async dispatch => {
@@ -73,3 +75,68 @@ export const dangNhapAction = (thongTinDangNhap) => {
     }
 }
 
+
+// {
+//     "maLichChieu": 0,
+//         "danhSachVe": [
+//             {
+//                 "maGhe": 0,
+//                 "giaVe": 0
+//             }
+//         ],
+//             "taiKhoanNguoiDung": "string"
+// }
+
+export const datVeAction = (thongTinDatVe) => {
+    return async dispatch => {
+        try {
+            let result = await axios({
+                url: `${DOMAIN}/api/quanlydatve/datve`,
+                method: 'post',
+                data: thongTinDatVe,
+
+                //phan nay để api xác nhận mình đã đăng nhập rồi
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                }
+            })
+            //goi action xoa ghe
+            await dispatch({
+                type: XOA_DANH_SACH_GHE_DANG_DAT
+            })
+
+            //sau khi dat ve xong goi lai action load lai phong ve
+            await dispatch(getApiChiTietPhongVeAction(thongTinDatVe.maLichChieu))
+            //goi action khac (maLichChieu => tu page checkout)
+            console.log('datveaction', result.data)
+
+        } catch (err) {
+            console.log('error', err.resoponse?.data)
+        }
+    }
+}
+
+
+
+
+export const thongTinTaiKhoanAction = (userLogin) => {
+    return async dispatch => {
+        try {
+            // console.log('try')
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
+                method: 'post',
+                data: userLogin,
+
+
+            })
+            // console.log('thong tin tai khoan',result.data);
+            dispatch({
+                type: THONG_TIN_TAI_KHOAN,
+                data: result.data
+            })
+
+
+        } catch (err) { console.log('errors', err.response?.data) }
+    }
+}

@@ -16,7 +16,7 @@ export default function FilmDetail(props) {
     useEffect(() => {
         const action = getApiFilmDetaiAction(props.match.params.postID);
         dispatch(action)
-        console.log('thong tin chi tiet',thongTinChiTiet)
+        // console.log('thong tin chi tiet',thongTinChiTiet)
 
 
     }, [])

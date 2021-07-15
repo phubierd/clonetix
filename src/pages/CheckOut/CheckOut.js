@@ -1,32 +1,33 @@
 import React, { Fragment, useEffect } from 'react'
 import Header from 'components/Header/Header'
 import Footer from 'components/Footer/Footer'
-import { Row, Col, Typography, Button } from 'antd'
+import { Row, Col, Typography, Button, Modal, Space } from 'antd'
 import './CheckOut.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getApiChiTietPhongVeAction } from 'redux/action/FilmAction'
-import { DAT_GHE } from 'redux/type/FilmType'
+import { DAT_GHE, XOA_DANH_SACH_GHE_DANG_DAT } from 'redux/type/FilmType'
 import _ from 'lodash'
 import { USER_LOGIN } from 'util/setting'
 import { Redirect } from 'react-router'
+import { datVeAction } from 'redux/action/UserAction'
 
 export default function CheckOut(props) {
 
     const { chiTietPhongVe } = useSelector(state => state.FilmReducer);
     const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
-    const dispatch = useDispatch();
     const { danhSachGheDangDat } = useSelector(state => state.FilmReducer)
+    const { userLogin } = useSelector(state => state.UserReducer)
+    const dispatch = useDispatch();
     const { Text } = Typography;
-
     useEffect(() => {
         dispatch(getApiChiTietPhongVeAction(props.match.params.id));
-        console.log('chi tiet phong ve checkout', chiTietPhongVe)
+        // console.log('chi tiet phong ve checkout', chiTietPhongVe)
     }, [])
 
     // console.log('danhSachGhe DD',danhSachGheDangDat)
 
-    if (!localStorage.getItem(USER_LOGIN)){
-        return <Redirect to="/userlogin"/>
+    if (!localStorage.getItem(USER_LOGIN)) {
+        return <Redirect to="/userlogin" />
     }
 
 
@@ -35,12 +36,12 @@ export default function CheckOut(props) {
 
             let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : 'ghe';
             let classGheDaDat = ghe.daDat === true ? 'gheDaDat' : 'ghe';
-            
+
             //mỗi lần render ra 1 ghế đem ghế so sánh có trong mảng ghế đang đặt hay ko, nếu có thêm CSS
             let classGheDangDat = '';
 
-            let indexGheDD = danhSachGheDangDat.findIndex(gheDD=>gheDD.maGhe === ghe.maGhe)
-            if (indexGheDD !== -1){
+            let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === ghe.maGhe)
+            if (indexGheDD !== -1) {
                 classGheDangDat = 'gheDangDat'
             }
 
@@ -74,9 +75,9 @@ export default function CheckOut(props) {
                     </Col>
                     <Col span={8} >
                         <div style={{ textAlign: 'center', fontSize: '50px' }}>
-                            <Text type="success" >{danhSachGheDangDat.reduce((tongTien,gheDD,index)=>{
-                                        return tongTien+= gheDD.giaVe
-                                    },0).toLocaleString()}đ</Text>
+                            <Text type="success" >{danhSachGheDangDat.reduce((tongTien, gheDD, index) => {
+                                return tongTien += gheDD.giaVe
+                            }, 0).toLocaleString()} VND</Text>
                         </div>
                         <div className="checkOut__text">
                             <p>Tên Phim: {thongTinPhim?.tenPhim}</p>
@@ -90,23 +91,44 @@ export default function CheckOut(props) {
                                     {/* {
                                         console.log(_.sortBy(danhSachGheDangDat,['stt']),'sort')
                                     } */}
-                                    <p>Ghế: {danhSachGheDangDat.sort((a,b)=>a.stt-b.stt).map((gheDD, index) => {
+                                    <p style={{ fontWeight: 600 }}>Ghế: {danhSachGheDangDat.sort((a, b) => a.stt - b.stt).map((gheDD, index) => {
                                         return <span key={index} style={{ color: 'red', fontWeight: '600' }}> {gheDD.stt} </span>
                                     })}</p>
                                 </Col>
                                 <Col span={8}>
-                                    <p style={{ color: 'red', fontWeight: '600' }}>{danhSachGheDangDat.reduce((tongTien,gheDD,index)=>{
-                                        return tongTien+= gheDD.giaVe
-                                    },0).toLocaleString()}$</p>
+                                    <p style={{ color: 'red', fontWeight: '600' }}>{danhSachGheDangDat.reduce((tongTien, gheDD, index) => {
+                                        return tongTien += gheDD.giaVe
+                                    }, 0).toLocaleString()} VND</p>
                                 </Col>
                             </Row>
-                            <p>Email: </p>
+                            <p style={{ fontWeight: '600' }}>Email: {userLogin.email}</p>
 
-                            <p>Phone: </p>
+                            <p style={{ fontWeight: '600' }}>Phone: {userLogin.soDT}</p>
                         </div>
 
                         <div style={{ textAlign: 'center' }}>
-                            <Button className="checkOut__btn" type="primary" danger>Đặt Vé</Button>
+                            <Button className="checkOut__btn" type="primary" primary onClick={() => {
+                                let thongTinDatVe = {
+
+                                    "maLichChieu": props.match.params.id,
+                                    "danhSachVe": danhSachGheDangDat,
+                                    "taiKhoanNguoiDung": userLogin.taiKhoan
+                                }
+                                // console.log('thongTinDatVe',thongTinDatVe)
+                                dispatch(datVeAction(thongTinDatVe))
+
+                                // ========= modal success
+                                Modal.success({
+                                    content: `Đặt Vé Thành Công`
+                                });
+
+                            }}>ĐẶT VÉ</Button>
+                            <Button className="checkOut__btn" danger style={{ marginLeft: '20px' }} onClick={() => {
+                                const action = {
+                                    type: XOA_DANH_SACH_GHE_DANG_DAT
+                                }
+                                dispatch(action)
+                            }}>HỦY</Button>
                         </div>
                     </Col>
                 </Row>

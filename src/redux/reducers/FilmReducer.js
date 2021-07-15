@@ -1,4 +1,4 @@
-import { DAT_GHE, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL } from "redux/type/FilmType"
+import { DAT_GHE, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, XOA_DANH_SACH_GHE_DANG_DAT } from "redux/type/FilmType"
 
 const initialState = {
     arrFilm: [],
@@ -56,6 +56,10 @@ export const FilmReducer = (state = initialState, action) => {
             }
 
             state.danhSachGheDangDat = danhSachGheDangDatClone;
+            return { ...state }
+        }
+        case XOA_DANH_SACH_GHE_DANG_DAT: {
+            state.danhSachGheDangDat = [];
             return { ...state }
         }
 

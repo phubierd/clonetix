@@ -10,7 +10,7 @@ export default function News() {
     
 
     return (
-        <div style={{ margin: '20px 0' }}>
+        <div style={{ margin: '20px 0' }} id="newsID">
             <Row justify="center">
                 <Col span={16}>
                     <Tabs defaultActiveKey="1" centered className="news">

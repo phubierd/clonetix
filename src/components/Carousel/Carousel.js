@@ -45,7 +45,7 @@ export default function MyCarousel(props) {
     // console.log(isVideoPlaying,'isVideoPlaying')
     return (
 
-        <Content className="site-layout" style={{ marginTop: 64 }}>
+        <Content className="site-layout" style={{ marginTop: 50 }}>
             <div className="site-layout-background" style={{ minHeight: 380 }}>
                 <Carousel autoplay draggable={true} fade={true}>
                     {arrCarousel.map((item, index) => {
@@ -57,7 +57,7 @@ export default function MyCarousel(props) {
                                 {
                                     isVideoPlaying && <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className="carousel__modal" afterClose={handleResetTrailer}>
                                     {
-                                        <iframe width="100%" height="100%" src={carouselTrailer?.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe width="100%" height="100%" src={carouselTrailer?.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
                                     }
                                 </Modal>
                                 }

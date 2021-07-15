@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Select, Button, Card, Rate, Tabs, Divider } from 'antd';
+import { Row, Col, Select, Button, Card, Rate, Tabs, Divider, Modal } from 'antd';
 import './ListFilm.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction } from 'redux/action/FilmAction';
@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 export default function ListFilm(props) {
 
     const { arrFilm } = useSelector(state => state.FilmReducer)
+    const [trailer,setTrailer]=  useState({});
 
     const dispatch = useDispatch();
 
@@ -20,22 +21,45 @@ export default function ListFilm(props) {
     const { TabPane } = Tabs;
 
     const onChange = (a, b, c) => {
-        console.log(a, b, c)
+        // console.log(a, b, c)
     }
 
 
     const callback = (key) => {
-        console.log(key);
+        // console.log(key);
+    }
+
+    // ===========modal
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    // const showModal = () => {
+    //     setIsModalVisible(true);
+    // };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleClick = (maPhim) => {
+        setIsModalVisible(true);
+        const result = arrFilm.find(item => item.maPhim === maPhim)
+        console.log(result)
+        setTrailer(result.trailer)
     }
 
     useEffect(() => {
         dispatch(getApiFilmAction())
         // console.log(arrFilm)
+        console.log('props', props.myRef)
     }, [])
 
     return (
         <>
-            <Row justify="center" orientation="center" align="center">
+            {/* <Row justify="center" orientation="center" align="center">
                 <Col span={16} align="center">
                     <Divider orientation="center">
                         <Select defaultValue="1" style={{ width: 300 }} onChange={handleChange}>
@@ -70,19 +94,22 @@ export default function ListFilm(props) {
 
                     </Divider></Col>
 
-            </Row>
+            </Row> */}
 
-            <Row justify="center" >
+            <Row justify="center" id="listFilmID" ref={props.myRef}>
                 <Col span={16} align="center" justify="center">
                     <Tabs defaultActiveKey="1" onChange={callback} className="listFilm">
                         <TabPane tab="Đang Chiếu" key="1" >
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
-                                    {arrFilm.slice(2, 14).map((film, index) => {
+                                    {arrFilm.slice(2, 18).map((film, index) => {
                                         return <Col span={6} key={index}>
-                                            <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..."/>}>
+                                            <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..." />}>
                                                 <div className="listFilm__overLay" />
-                                                <img className="listFilm__play" src='./img/play-video.png' alt="..."/>
+                                                <img className="listFilm__play" src='./img/play-video.png' alt="..." onClick={() => { handleClick(film.maPhim) }} />
+                                                <Modal title="Trailer" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className='listFilm__modal'>
+                                                    <iframe width="100%" height="100%" src={trailer} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                                                </Modal>
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
@@ -95,10 +122,6 @@ export default function ListFilm(props) {
                                                             ĐẶT VÉ
                                                         </Button>
                                                     </NavLink>
-                                                    {/* <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
-                                                        <NavLink to={`/filmdetail/${film.maPhim}`}>ĐẶT VÉ</NavLink>
-                                                    </Button> */}
-                                                    {/* <NavLink to={`/filmdetail/${film.maPhim}`}>DAT VE</NavLink> */}
                                                 </div>
 
                                             </Card>
@@ -110,22 +133,28 @@ export default function ListFilm(props) {
                         <TabPane tab="Sắp Chiếu" key="2">
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
-                                    {arrFilm.splice(14, 12).map((film, index) => {
+                                    {arrFilm.slice(30, 42).map((film, index) => {
                                         return <Col span={6} key={index}>
-                                            <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' />}>
+                                            <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..." />}>
                                                 <div className="listFilm__overLay" />
-                                                <img className="listFilm__play" src='./img/play-video.png' alt="..."/>
+                                                <img className="listFilm__play" src='./img/play-video.png' alt="..." onClick={() => { handleClick(film.maPhim) }} />
+                                                <Modal title="Trailer" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className='listFilm__modal'>
+                                                    <iframe width="100%" height="100%" src={trailer} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                                                </Modal>
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
-                                                    <Rate className="listFilm__star" disabled={true} value={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
+                                                    <Rate className="listFilm__star" disabled={true} allowHalf value={(film.danhGia) / 2} style={{ color: '#FB4226' }} />
                                                 </div>
-                                                <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '...' : (film.moTa)} />
+                                                <Meta title={film.tenPhim} description={(film.moTa).length > 50 ? (film.moTa).substring(0, 50) + '. . .' : (film.moTa)} />
                                                 <div className="ListFilm__datVe">
-                                                    <Button type="primary" danger href="#" size="large" style={{ width: '100%' }}>
-                                                        ĐẶT VÉ
-                                                    </Button>
+                                                    <NavLink to={`/filmdetail/${film.maPhim}`}>
+                                                        <Button type="primary" danger size="large" style={{ width: '100%' }}>
+                                                            ĐẶT VÉ
+                                                        </Button>
+                                                    </NavLink>
                                                 </div>
+
                                             </Card>
                                         </Col>
                                     })}

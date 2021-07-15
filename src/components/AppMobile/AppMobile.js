@@ -30,7 +30,7 @@ export default function AppMobile() {
 
     return (
 
-        <div className="appMobile">
+        <div className="appMobile" id="appMobileID">
             <Row justify="center" >
                 <Col span={16} >
                     <Row justify="center" align="middle" style={{ marginTop: '10%' }}>

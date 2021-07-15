@@ -1,4 +1,4 @@
-import { DANG_NHAP, LOGOUT } from "redux/type/UserType";
+import { DANG_NHAP, THONG_TIN_TAI_KHOAN } from "redux/type/UserType";
 import { USER_LOGIN } from "util/setting";
 
 
@@ -9,7 +9,8 @@ if (localStorage.getItem(USER_LOGIN)) {
 }
 
 const initialState = {
-    userLogin: usLogin
+    userLogin: usLogin,
+    thongTinTaiKhoan:[],
 }
 
 export const UserReducer = (state = initialState, action) => {
@@ -20,12 +21,11 @@ export const UserReducer = (state = initialState, action) => {
             state.userLogin = action.data
             return { ...state }
         }
-
-        // case LOGOUT: {
-        //     state.userLogin = '';
-        //     return { ...state }
-        // }
-
+        
+        case THONG_TIN_TAI_KHOAN:{
+            state.thongTinTaiKhoan = action.data
+            return{...state}
+        }
 
         default:
             return state
