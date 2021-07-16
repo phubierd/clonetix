@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
-import { Button, Space, Table } from 'antd';
+import React, { useEffect, useState } from 'react'
+import { Button, Space, Table, Drawer } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction } from 'redux/action/FilmAction';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 import './QuanLyPhim.css'
+import ThemPhim from './ThemPhim';
 export default function QuanLyPhim(props) {
 
     const dispatch = useDispatch();
@@ -13,12 +14,32 @@ export default function QuanLyPhim(props) {
     // console.log('arrFilm',arrFilm)
     const data = arrFilm;
 
+
+    // ====modal
+    const [visible, setVisible] = useState(false);
+    const showDrawer = () => {
+        setVisible(true);
+    };
+    const onClose = () => {
+        setVisible(false);
+    };
+
     useEffect(() => {
         dispatch(getApiFilmAction());
     }, [])
     return (
         <div className="quanLyPhim">
-            <Button type="primary">Thêm Phim</Button>
+            <Button type="primary" onClick={showDrawer}>Thêm Phim</Button>
+            <Drawer
+                className="themPhim"
+                title="Thêm Phim"
+                placement="right"
+                closable={false}
+                onClose={onClose}
+                visible={visible}
+            >
+                <ThemPhim />
+            </Drawer>
             <Table dataSource={data}>
                 <ColumnGroup title="Quản Lý Phim">
                     <Column title="Mã Phim" dataIndex="maPhim" key="maPhim" />
@@ -45,7 +66,7 @@ export default function QuanLyPhim(props) {
                             <Space>
                                 <NavLink to="/"><Button type="primary">Tạo Lịch Chiếu</Button></NavLink>
                                 <NavLink to="/"><Button type="primary">Chỉnh Sửa</Button></NavLink>
-                                <br/>
+                                <br />
                                 <Button type="primary" danger>XÓA</Button>
                             </Space>
                         )}
