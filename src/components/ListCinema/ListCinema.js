@@ -10,7 +10,7 @@ export default function ListCinema(props) {
     const { TabPane } = Tabs;
 
     const { heThongRapChieu } = props;
-    console.log('hethongrap', heThongRapChieu)
+    // console.log('hethongrap', heThongRapChieu)
 
 
     return (
