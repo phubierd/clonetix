@@ -21,7 +21,7 @@ export default function HomeTemplate() {
         console.log(`selected ${value}`);
     }
 
-    const reloadPage =()=>{
+    const reloadPage = () => {
         window.location.reload()
     }
 
@@ -41,10 +41,10 @@ export default function HomeTemplate() {
             </Menu.Item>
             <Menu.Divider />
             <Menu.Item key="1">
-                    <Button type="primary" danger onClick={()=>{
-                        console.log('clicking...')
-                                logOut()
-                    }}>Đăng Xuất</Button>
+                <Button type="primary" danger onClick={() => {
+                    console.log('clicking...')
+                    logOut()
+                }}>Đăng Xuất</Button>
             </Menu.Item>
         </Menu>
     );
@@ -54,9 +54,7 @@ export default function HomeTemplate() {
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                 <div className="logo">
-                    <img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{cursor:'pointer'}} onClick={()=>{
-                        reloadPage()
-                    }}/>
+                    <a href="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></a>
                 </div>
                 <Menu theme="light" mode="horizontal">
                     <Menu.Item key="1">Lịch Chiếu</Menu.Item>
@@ -71,7 +69,7 @@ export default function HomeTemplate() {
                         {
                             _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
                                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                    <img src={`https://avatars.dicebear.com/api/human/${userLogin.taiKhoan}.svg`} width="30px" height="30px" alt="..."/>Hi ! {userLogin.taiKhoan} <DownOutlined />
+                                    <img src={`https://avatars.dicebear.com/api/human/${userLogin.taiKhoan}.svg`} width="30px" height="30px" alt="..." />Hi ! {userLogin.taiKhoan} <DownOutlined />
                                 </a>
                             </Dropdown>
                         }
