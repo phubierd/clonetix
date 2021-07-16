@@ -47,14 +47,14 @@ export default function ListFilm(props) {
     const handleClick = (maPhim) => {
         setIsModalVisible(true);
         const result = arrFilm.find(item => item.maPhim === maPhim)
-        console.log(result)
+        // console.log(result)
         setTrailer(result.trailer)
     }
 
     useEffect(() => {
         dispatch(getApiFilmAction())
         // console.log(arrFilm)
-        console.log('props', props.myRef)
+        // console.log('props', props.myRef)
     }, [])
 
     return (

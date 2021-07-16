@@ -1,63 +1,52 @@
-import React from 'react'
-import { Table, Tag, Space } from 'antd';
+import React, { useEffect } from 'react'
+import { Button, Space, Table } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { getApiFilmAction } from 'redux/action/FilmAction';
+import moment from 'moment';
+import { NavLink } from 'react-router-dom';
+import './QuanLyPhim.css'
 export default function QuanLyPhim(props) {
 
+    const dispatch = useDispatch();
     const { Column, ColumnGroup } = Table;
-    const data = [
-        {
-            key: '1',
-            firstName: 'John',
-            lastName: 'Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
-        },
-        {
-            key: '2',
-            firstName: 'Jim',
-            lastName: 'Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
-        },
-        {
-            key: '3',
-            firstName: 'Joe',
-            lastName: 'Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-        },
-    ];
+    const { arrFilm } = useSelector(state => state.FilmReducer)
+    // console.log('arrFilm',arrFilm)
+    const data = arrFilm;
+
+    useEffect(() => {
+        dispatch(getApiFilmAction());
+    }, [])
     return (
-        <div>
+        <div className="quanLyPhim">
+            <Button type="primary">Thêm Phim</Button>
             <Table dataSource={data}>
                 <ColumnGroup title="Quản Lý Phim">
-                    <Column title="First Name" dataIndex="firstName" key="firstName" />
-                    <Column title="Last Name" dataIndex="lastName" key="lastName" />
-                    <Column title="Age" dataIndex="age" key="age" />
-                    <Column title="Address" dataIndex="address" key="address" />
-                    <Column
-                        title="Tags"
-                        dataIndex="tags"
-                        key="tags"
-                        render={tags => (
-                            <>
-                                {tags.map(tag => (
-                                    <Tag color="blue" key={tag}>
-                                        {tag}
-                                    </Tag>
-                                ))}
-                            </>
+                    <Column title="Mã Phim" dataIndex="maPhim" key="maPhim" />
+                    <Column title="Tên Phim" dataIndex="tenPhim" key="tenPhim" />
+                    <Column title="Bí Danh" dataIndex="biDanh" key="biDanh" />
+                    <Column title="Hình Ảnh" dataIndex="hinhAnh" key="hinhAnh"
+                        render={(text, record) => (
+                            <img src={record.hinhAnh} height='80px' width='80px' />
                         )}
                     />
+                    <Column title="Mô Tả" dataIndex="moTa" key="moTa" />
+                    <Column
+                        title="Ngày Khởi Chiếu"
+                        key="ngayKhoiChieu"
+                        render={(text, record) => (
+                            <>{moment(record.ngayKhoiChieu).format('MMMM Do YYYY, h:mm:ss a')}</>
+                        )}
+                    />
+                    <Column title="Đánh Giá" dataIndex="danhGia" key="danhGia" />
                     <Column
                         title="Action"
                         key="action"
                         render={(text, record) => (
-                            <Space size="middle">
-                                <a>Invite {record.lastName}</a>
-                                <a>Delete</a>
+                            <Space>
+                                <NavLink to="/"><Button type="primary">Tạo Lịch Chiếu</Button></NavLink>
+                                <NavLink to="/"><Button type="primary">Chỉnh Sửa</Button></NavLink>
+                                <br/>
+                                <Button type="primary" danger>XÓA</Button>
                             </Space>
                         )}
                     />

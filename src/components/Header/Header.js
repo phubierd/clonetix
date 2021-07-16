@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout, Menu, Avatar, Dropdown, Select, Button, BackTop, Modal, Tabs } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
@@ -22,13 +22,10 @@ export default function Header(props) {
     const { Option } = Select;
     const { TabPane } = Tabs;
 
-
-<<<<<<< HEAD
-    const reloadPage = () => {
-        window.location.reload()
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const handleClick = ()=>{
+        setIsModalVisible(true)
     }
-=======
->>>>>>> 6242114841d2f03d708fed2afba212a0b5632c16
 
     const logOut = () => {
         // console.log(USER_LOGIN,'clicking ...')
@@ -53,6 +50,7 @@ export default function Header(props) {
 
                     Modal.info({
                         title: 'Thông Tin Tài Khoản',
+                        closable:true,
                         content: (
                             <Tabs defaultActiveKey="1">
                                 <TabPane tab="Thông Tin Tài Khoản" key="1">
@@ -95,15 +93,9 @@ export default function Header(props) {
             </Menu.Item> : ''}
 
             <Menu.Divider />
-<<<<<<< HEAD
-            <Menu.Item key="1">
-                <Button type="primary" danger onClick={() => {
-                    console.log('clicking...')
-=======
             <Menu.Item key="2">
                 <Button type="primary" danger onClick={() => {
                     // console.log('clicking...')
->>>>>>> 6242114841d2f03d708fed2afba212a0b5632c16
                     logOut()
                 }}>Đăng Xuất</Button>
             </Menu.Item>
@@ -115,11 +107,7 @@ export default function Header(props) {
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                 <div className="logo">
-<<<<<<< HEAD
-                    <a href="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></a>
-=======
                     <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></NavLink>
->>>>>>> 6242114841d2f03d708fed2afba212a0b5632c16
                 </div>
                 <Menu theme="light" mode="horizontal">
                     <Menu.Item key="1" onClick={props.executeScroll} >Lịch Chiếu</Menu.Item>

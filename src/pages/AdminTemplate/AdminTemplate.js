@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './AdminTemplate.css'
 
 import { Layout, Menu, Dropdown, Select, Button, BackTop, Modal, Tabs, Alert } from 'antd';
@@ -40,6 +40,10 @@ export default function AdminPage(props) {
         localStorage.removeItem(ACCESSTOKEN);
         window.location.reload();
     }
+    useEffect(()=>{
+        dispatch(thongTinTaiKhoanAction(userLogin))
+
+    },[])
 
     if (userLogin.maLoaiNguoiDung !== 'QuanTri'){
         alert('Bạn Không Có Quyền Truy Cập Vào ..!!')
@@ -102,22 +106,22 @@ export default function AdminPage(props) {
         </Menu>
     );
 
-
+    
 
     return (
         <Route path={props.path} exact render={(propsRoute) => {
-            return  <Layout style={{ height: '100vh' }}>
+            return  <Layout style={{ height: '100%' }}>
                 <Sider trigger={null} collapsible collapsed={state.collapsed}>
                     <div className="logo" style={{ textAlign: 'center' }}>
                         <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></NavLink>
                     </div>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1" icon={<UserOutlined />}>
+                        <Menu.Item key="1" icon={<VideoCameraOutlined />}>
+                            <NavLink to="/quanlyphim">Quản Lý Phim</NavLink>
+                        </Menu.Item>
+                        <Menu.Item key="2" icon={<UserOutlined />}>
                             <NavLink to="/quanlynguoidung">Quản Lý Người Dùng</NavLink>
                             
-                        </Menu.Item>
-                        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                            <NavLink to="/quanlyphim">Quản Lý Phim</NavLink>
                         </Menu.Item>
                     </Menu>
                 </Sider>
