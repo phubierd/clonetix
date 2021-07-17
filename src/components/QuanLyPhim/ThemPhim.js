@@ -5,10 +5,11 @@ import './ThemPhim.css'
 import moment from 'moment';
 import 'moment/locale/vi';
 import locale from 'antd/lib/locale/vi_VN';
-export default function ThemPhim() {
+export default function ThemPhim(props) {
 
     const onFinish = (values) => {
         console.log('Success:', values);
+
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -16,23 +17,24 @@ export default function ThemPhim() {
     };
 
     // ======upload file
-    const props = {
+    const hinhAnh = {
         name: 'file',
         // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
         // headers: {
         //     authorization: 'authorization-text',
         // },
-        onChange(info) {
-            if (info.file.status !== 'uploading') {
-                console.log(info.file, info.fileList);
-            }
-            if (info.file.status === 'done') {
-                message.success(`${info.file.name} file uploaded successfully`);
-            } else if (info.file.status === 'error') {
-                message.error(`${info.file.name} file upload failed.`);
-            }
-        },
+        // onChange(info) {
+        //     if (info.file.status !== 'uploading') {
+        //         console.log(info.file, info.fileList);
+        //     }
+        //     if (info.file.status === 'done') {
+        //         message.success(`${info.file.name} file uploaded successfully`);
+        //     } else if (info.file.status === 'error') {
+        //         message.error(`${info.file.name} file upload failed.`);
+        //     }
+        // },
     };
+    // console.log('hinhanh', hinhAnh)
 
     // ======select
     const { Option } = Select;
@@ -43,9 +45,18 @@ export default function ThemPhim() {
 
     // ====date picker
     function onChange(date, dateString) {
+        const datePicker = {
+            ngayKhoiChieu: moment(dateString)
+        }
         console.log(date, dateString);
+        console.log('datepicker',datePicker)
+        return datePicker
     }
-
+    const dateFormat = 'DD/MM/YYYY'
+    // const pickDate = {
+    //     ngayKhoiChieu: moment('2020-06-09T12:40:14+0000')
+    // }
+    // console.log('pickDate', pickDate)
 
     return (
         <div>
@@ -56,56 +67,61 @@ export default function ThemPhim() {
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
+                // initialValues={pickDate}
+                initialValues={handleChange}
             >
                 <Form.Item
                     label="Mã Phim"
                     name="maPhim"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
                     label="Tên Phim"
                     name="tenPhim"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
                     label="Bí Danh"
                     name="biDanh"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
                     label="Trailer"
                     name="trailer"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
                     label="Hình Ảnh"
                     name="hinhAnh"
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
 
                 >
-                    <Upload {...props}>
+                    <Upload beforeUpload={() => false}>
                         <Button icon={<UploadOutlined />}>Click to Upload</Button>
                     </Upload>
                 </Form.Item>
                 <Form.Item
                     label="Mô Tả"
                     name="moTa"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
                     label="Mã Nhóm"
                     name="maNhom"
+                    rules={[{ required: true, message: 'Vui lòng chọn mã nhóm!' }]}
+
                 >
-                    <Select defaultValue="GP01" style={{ width: 120 }} onChange={handleChange}>
+                    <Select style={{ width: 120 }} onChange={handleChange}>
                         <Option value="GP01">GP01</Option>
                         <Option value="GP02">GP02</Option>
                         <Option value="GP03">GP03</Option>
@@ -114,15 +130,17 @@ export default function ThemPhim() {
                 <Form.Item
                     label="Ngày Khởi Chiếu"
                     name="ngayKhoiChieu"
+                    // rules={[{ required: true, message: 'Không được để trống!' }]}
+
                 >
                     <ConfigProvider locale={locale}>
-                        <DatePicker onChange={onChange} format='DD/MM/YYYY' />
+                        <DatePicker onChange={onChange} format={dateFormat} />
                     </ConfigProvider>
                 </Form.Item>
                 <Form.Item
                     label="Đánh Giá"
                     name="danhGia"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Không được để trống!' }]}
                 >
                     <Input />
                 </Form.Item>
