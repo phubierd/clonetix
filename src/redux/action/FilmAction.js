@@ -1,6 +1,6 @@
 import axios from "axios"
 import { SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL } from "redux/type/FilmType"
-import { DOMAIN } from "util/setting"
+import { ACCESSTOKEN, DOMAIN } from "util/setting"
 
 
 
@@ -55,6 +55,25 @@ export const getApiChiTietPhongVeAction = (maLichChieu) => {
                 data: result.data
             })
         } catch (err) {
+            console.log(err.response?.data)
+        }
+    }
+}
+
+
+export const themPhimAction = (formData)=>{
+    return async dispatch =>{
+        try{
+            const result = await axios({
+                url:`${DOMAIN}/api/QuanLyPhim/ThemPhim`,
+                method:'post',
+                data:formData,
+                headers:{
+                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                }
+            })
+            console.log('result',result.data)
+        }catch(err){
             console.log(err.response?.data)
         }
     }

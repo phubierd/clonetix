@@ -1,14 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Input, Button, Upload, message, Select, DatePicker, ConfigProvider } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './ThemPhim.css'
 import moment from 'moment';
 import 'moment/locale/vi';
 import locale from 'antd/lib/locale/vi_VN';
+import { Formik } from 'formik';
+import { keys } from 'lodash';
+import { useDispatch } from 'react-redux';
 export default function ThemPhim(props) {
+    const [date, setDate] = useState(moment(new Date()).format('DD/MM/YYYY'))
+    const dispatch = useDispatch();
 
     const onFinish = (values) => {
+        values.ngayKhoiChieu = date
+        values.maPhim = Number(values.maPhim)
+        values.danhGia = Number(values.danhGia)
+        // parseInt(values.maPhim)
         console.log('Success:', values);
+
+        //biến đối tượng thành formData
+        let formData = new FormData();
+        for (let key in values) {
+
+            //xử lý nếu duyệt tới truòng hình ảnh dạng file thì đưa vào đối tượng formData với 3 tham số
+            // if (key === 'hinhAnh') {
+            //     formData.append('File', values[key], values[key].name)
+            // } else {
+            //     formData.append(key, values[key])
+            // }
+            formData.append(key, values[key])
+        }
+        console.log('123',formData)
+        formData.forEach((item, index) => {
+            console.log('formData', item, index)
+        })
 
     };
 
@@ -16,59 +42,34 @@ export default function ThemPhim(props) {
         console.log('Failed:', errorInfo);
     };
 
-    // ======upload file
-    const hinhAnh = {
-        name: 'file',
-        // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-        // headers: {
-        //     authorization: 'authorization-text',
-        // },
-        // onChange(info) {
-        //     if (info.file.status !== 'uploading') {
-        //         console.log(info.file, info.fileList);
-        //     }
-        //     if (info.file.status === 'done') {
-        //         message.success(`${info.file.name} file uploaded successfully`);
-        //     } else if (info.file.status === 'error') {
-        //         message.error(`${info.file.name} file upload failed.`);
-        //     }
-        // },
-    };
-    // console.log('hinhanh', hinhAnh)
 
     // ======select
     const { Option } = Select;
 
     function handleChange(value) {
-        console.log(`selected ${value}`);
+        // console.log(`selected ${value}`);
     }
 
     // ====date picker
     function onChange(date, dateString) {
-        const datePicker = {
-            ngayKhoiChieu: moment(dateString)
-        }
-        console.log(date, dateString);
-        console.log('datepicker',datePicker)
-        return datePicker
+        // console.log(moment(date).format('DD/MM/YYYY'),'date')
+        setDate(moment(date).format('DD/MM/YYYY'))
+        // setDate(dateString)
     }
     const dateFormat = 'DD/MM/YYYY'
-    // const pickDate = {
-    //     ngayKhoiChieu: moment('2020-06-09T12:40:14+0000')
-    // }
-    // console.log('pickDate', pickDate)
 
+    // console.log(date, 'date ???')
     return (
-        <div>
+        <div >
             <Form
                 name="basic"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
-                initialValues={{ remember: true }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
-                // initialValues={pickDate}
-                initialValues={handleChange}
+            // initialValues={testDate}
+
+
             >
                 <Form.Item
                     label="Mã Phim"
@@ -104,7 +105,7 @@ export default function ThemPhim(props) {
                     rules={[{ required: true, message: 'Không được để trống!' }]}
 
                 >
-                    <Upload beforeUpload={() => false}>
+                    <Upload beforeUpload={() => false} >
                         <Button icon={<UploadOutlined />}>Click to Upload</Button>
                     </Upload>
                 </Form.Item>
@@ -130,7 +131,7 @@ export default function ThemPhim(props) {
                 <Form.Item
                     label="Ngày Khởi Chiếu"
                     name="ngayKhoiChieu"
-                    // rules={[{ required: true, message: 'Không được để trống!' }]}
+                // rules={[{ required: true, message: 'Không được để trống!' }]}
 
                 >
                     <ConfigProvider locale={locale}>
@@ -156,3 +157,4 @@ export default function ThemPhim(props) {
         </div>
     )
 }
+
