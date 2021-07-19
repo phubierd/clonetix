@@ -65,7 +65,7 @@ export const themPhimAction = (formData)=>{
     return async dispatch =>{
         try{
             const result = await axios({
-                url:`${DOMAIN}/api/QuanLyPhim/ThemPhim`,
+                url:`${DOMAIN}/api/QuanLyPhim/ThemPhimUploadHinh`,
                 method:'post',
                 data:formData,
                 headers:{

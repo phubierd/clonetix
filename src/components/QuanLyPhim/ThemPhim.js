@@ -136,7 +136,7 @@ export default function ThemPhim(props) {
                     rules={[{ required: true, message: 'Vui lòng chọn mã nhóm!' }]}
 
                 >
-                    <Select style={{ width: 120 }} onChange={handleChange}>
+                    <Select style={{ width: 120 }} onChange={handleChange} defaultValue="Chọn">
                         <Option value="GP01">GP01</Option>
                         <Option value="GP02">GP02</Option>
                         <Option value="GP03">GP03</Option>
