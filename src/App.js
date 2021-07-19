@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/checkout/:id" component={CheckOut} />
         <Route exact path="/userlogin" component={UserLogin} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/" component={Home} />
+        <Route component={Home} />
         {/* <Route exact path="/admin" component={AdminTemplate} /> */}
         <AdminTemplate exact path="/quanlyphim" component={QuanLyPhim}/>
         <AdminTemplate exact path="/quanlynguoidung" component={QuanLyUser}/>

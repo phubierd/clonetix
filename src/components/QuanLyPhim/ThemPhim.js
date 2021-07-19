@@ -8,16 +8,21 @@ import locale from 'antd/lib/locale/vi_VN';
 import { Formik } from 'formik';
 import { keys } from 'lodash';
 import { useDispatch } from 'react-redux';
+import { themPhimAction } from 'redux/action/FilmAction';
 export default function ThemPhim(props) {
     const [date, setDate] = useState(moment(new Date()).format('DD/MM/YYYY'))
+    const [imgSrc, setImgSrc] = useState('');
     const dispatch = useDispatch();
 
     const onFinish = (values) => {
         values.ngayKhoiChieu = date
         values.maPhim = Number(values.maPhim)
         values.danhGia = Number(values.danhGia)
+        values.hinhAnh = values.hinhAnh.file
         // parseInt(values.maPhim)
+
         console.log('Success:', values);
+
 
         //biến đối tượng thành formData
         let formData = new FormData();
@@ -31,10 +36,11 @@ export default function ThemPhim(props) {
             // }
             formData.append(key, values[key])
         }
-        console.log('123',formData)
         formData.forEach((item, index) => {
             console.log('formData', item, index)
         })
+
+        dispatch(themPhimAction(formData))
 
     };
 
@@ -42,6 +48,12 @@ export default function ThemPhim(props) {
         console.log('Failed:', errorInfo);
     };
 
+    // ======= upload
+    // const handleImg = (value) => {
+
+    //     console.log(value)
+    //     setImgSrc=(value.file)
+    // }
 
     // ======select
     const { Option } = Select;
@@ -102,12 +114,14 @@ export default function ThemPhim(props) {
                 <Form.Item
                     label="Hình Ảnh"
                     name="hinhAnh"
-                    rules={[{ required: true, message: 'Không được để trống!' }]}
+                // rules={[{ required: true, message: 'Không được để trống!' }]}
 
                 >
-                    <Upload beforeUpload={() => false} >
+                    <Upload beforeUpload={() => false}  >
                         <Button icon={<UploadOutlined />}>Click to Upload</Button>
                     </Upload>
+                    {/* <br /> */}
+                    {/* <img width='100px' height='100px' src={imgSrc} alt="..." ></img> */}
                 </Form.Item>
                 <Form.Item
                     label="Mô Tả"
