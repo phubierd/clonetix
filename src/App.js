@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './pages/Home/Home';
 // import HomeTemplate from './template/HomeTemplate/HomeTemplate';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch, Router, BrowserRouter,HashRouter } from 'react-router-dom';
 import FilmDetail from 'pages/FilmDetail/FilmDetail';
 import CheckOut from 'pages/CheckOut/CheckOut';
 import UserLogin from 'pages/UserLogin/UserLogin';
@@ -19,7 +19,7 @@ export const history = createBrowserHistory()
 function App() {
   return (
 
-    <Router history={history}>
+    <HashRouter history={history}>
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route exact path="/filmdetail/:postID" component={FilmDetail} />
@@ -31,7 +31,7 @@ function App() {
         <AdminTemplate exact path="/quanlyphim" component={QuanLyPhim}/>
         <AdminTemplate exact path="/quanlynguoidung" component={QuanLyUser}/>
       </Switch>
-    </Router>
+    </HashRouter>
 
 
 
