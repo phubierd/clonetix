@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Space, Table, Drawer } from 'antd';
+import React, { useEffect, useState,useMemo } from 'react'
+import { Button, Space, Table, Drawer, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { getApiFilmAction } from 'redux/action/FilmAction';
+import { getApiFilmAction, searchPhimAction } from 'redux/action/FilmAction';
 import moment from 'moment';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import './QuanLyPhim.css'
 import ThemPhim from './ThemPhim';
+import { DeleteOutlined, EditOutlined, FolderAddOutlined } from '@ant-design/icons';
 export default function QuanLyPhim(props) {
+
 
     const dispatch = useDispatch();
     const { Column, ColumnGroup } = Table;
     const { arrFilm } = useSelector(state => state.FilmReducer)
-    // console.log('arrFilm',arrFilm)
     const data = arrFilm;
+    // console.log('arrFilm',arrFilm)
+
+    const { arrFilmSearch } = useSelector(state => state.FilmReducer)
+    const searchList =  arrFilmSearch && arrFilmSearch.length > 0 ? arrFilmSearch : data
+    // console.log('arrFilmSearch', arrFilmSearch)
+
+    // console.log('arrFilmSearch data', data)
+    useEffect(() => {
+        dispatch(getApiFilmAction());
+
+    }, [])
+
 
 
     // ====modal
@@ -24,9 +37,22 @@ export default function QuanLyPhim(props) {
         setVisible(false);
     };
 
-    useEffect(() => {
-        dispatch(getApiFilmAction());
-    }, [])
+
+    //===== search
+    const { Search } = Input;
+    const onSearch = value => {
+        dispatch(searchPhimAction(value || ''))
+        // console.log(value)
+
+    }
+
+    //===== action
+
+    const handleClick = (object) => {
+        // const result = arrFilm.find(item => item.maPhim === maPhim)
+        console.log(object)
+    }
+
     return (
         <div className="quanLyPhim">
             <Button type="primary" onClick={showDrawer}>Thêm Phim</Button>
@@ -40,7 +66,12 @@ export default function QuanLyPhim(props) {
             >
                 <ThemPhim />
             </Drawer>
-            <Table dataSource={data}>
+            <div style={{ margin: '10px 0' }}>
+                <Space direction="vertical" >
+                    <Search size={'large'} placeholder="Tìm Kiếm..."  onSearch={onSearch} enterButton />
+                </Space>
+            </div>
+            <Table dataSource={searchList}>
                 <ColumnGroup title="Quản Lý Phim">
                     <Column title="Mã Phim" dataIndex="maPhim" key="maPhim" />
                     <Column title="Tên Phim" dataIndex="tenPhim" key="tenPhim" />
@@ -55,19 +86,18 @@ export default function QuanLyPhim(props) {
                         title="Ngày Khởi Chiếu"
                         key="ngayKhoiChieu"
                         render={(text, record) => (
-                            <>{moment(record.ngayKhoiChieu).format('MMMM Do YYYY, h:mm:ss a')}</>
+                            <>{moment(record.ngayKhoiChieu).format('DD/MM/YYYY')}</>
                         )}
                     />
                     <Column title="Đánh Giá" dataIndex="danhGia" key="danhGia" />
                     <Column
-                        title="Action"
+                        title="Thao Tác"
                         key="action"
                         render={(text, record) => (
                             <Space>
-                                <NavLink to="/"><Button type="primary">Tạo Lịch Chiếu</Button></NavLink>
-                                <NavLink to="/"><Button type="primary">Chỉnh Sửa</Button></NavLink>
-                                <br />
-                                <Button type="primary" danger>XÓA</Button>
+                                <Button type="primary" onClick={()=>handleClick(text)}><FolderAddOutlined /></Button>
+                                <Button type="primary" onClick={()=>handleClick(record)}><EditOutlined /></Button>
+                                <Button type="primary" danger onClick={()=>handleClick(record)}><DeleteOutlined /></Button>
                             </Space>
                         )}
                     />

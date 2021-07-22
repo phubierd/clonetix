@@ -1,4 +1,4 @@
-import { DAT_GHE, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, XOA_DANH_SACH_GHE_DANG_DAT } from "redux/type/FilmType"
+import { DAT_GHE, SEARCH_FILM, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, XOA_DANH_SACH_GHE_DANG_DAT } from "redux/type/FilmType"
 
 const initialState = {
     arrFilm: [],
@@ -26,6 +26,7 @@ const initialState = {
         //     tenGhe: "159"
         // }
     ],
+    arrFilmSearch: []
 
 }
 
@@ -60,6 +61,10 @@ export const FilmReducer = (state = initialState, action) => {
         }
         case XOA_DANH_SACH_GHE_DANG_DAT: {
             state.danhSachGheDangDat = [];
+            return { ...state }
+        }
+        case SEARCH_FILM: {
+            state.arrFilmSearch = action.data;
             return { ...state }
         }
 

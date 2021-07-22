@@ -1,5 +1,6 @@
 import axios from "axios"
-import { SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL } from "redux/type/FilmType"
+import { method } from "lodash"
+import { SEARCH_FILM, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL } from "redux/type/FilmType"
 import { ACCESSTOKEN, DOMAIN } from "util/setting"
 
 
@@ -61,21 +62,43 @@ export const getApiChiTietPhongVeAction = (maLichChieu) => {
 }
 
 
-export const themPhimAction = (formData)=>{
-    return async dispatch =>{
-        try{
+export const themPhimAction = (formData) => {
+    return async dispatch => {
+        try {
             const result = await axios({
-                url:`${DOMAIN}/api/QuanLyPhim/ThemPhimUploadHinh`,
-                method:'post',
-                data:formData,
-                headers:{
-                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                url: `${DOMAIN}/api/QuanLyPhim/ThemPhimUploadHinh`,
+                method: 'post',
+                data: formData,
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
                 }
             })
-            console.log('result',result.data)
-        }catch(err){
+            // console.log('result', result.data)
+        } catch (err) {
             console.log(err.response?.data)
         }
     }
 }
 
+
+export const searchPhimAction = (tenPhim) => {
+    const query = tenPhim ? `&tenPhim=${tenPhim}`: ''
+    // const query = tenPhim && `&tenPhim=${tenPhim}`
+    // if(!tenPhim) => undefined,false,'',
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01${query}`,
+                method:'get'
+            })
+            // console.log('search film',result.data)
+            dispatch({
+                type: SEARCH_FILM,
+                data:result.data
+            })
+
+        } catch (err) {
+            console.log(err.response?.data)
+        }
+    }
+}

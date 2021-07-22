@@ -110,8 +110,8 @@ export default function AdminPage(props) {
 
     return (
         <Route path={props.path} exact render={(propsRoute) => {
-            return  <Layout style={{ height: '100%' }}>
-                <Sider trigger={null} collapsible collapsed={state.collapsed}>
+            return  <Layout style={{ height: '100%', minHeight:'100vh' }}>
+                <Sider trigger={null} collapsible collapsed={!state.collapsed}>
                     <div className="logo" style={{ textAlign: 'center' }}>
                         <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></NavLink>
                     </div>
