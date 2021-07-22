@@ -1,8 +1,7 @@
 {
   "name": "clonetix",
-  "homepage": "./",
+  "main": "index.js",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@dicebear/avatars": "^4.6.9",
