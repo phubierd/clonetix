@@ -45,7 +45,7 @@ export default function MyCarousel(props) {
     // console.log(isVideoPlaying,'isVideoPlaying')
     return (
 
-        <Content className="site-layout" style={{ marginTop: 50 }}>
+        <Content className="site-layout" >
             <div className="site-layout-background" style={{ minHeight: 380 }}>
                 <Carousel autoplay draggable={true} fade={true}>
                     {arrCarousel.map((item, index) => {

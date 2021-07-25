@@ -17,7 +17,7 @@ import { ACCESSTOKEN, DOMAIN, USER_LOGIN } from "util/setting"
 //   }
 
 import { history } from "App"
-import { DANG_NHAP, THONG_TIN_TAI_KHOAN } from "redux/type/UserType"
+import { DANG_NHAP, GET_USER, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER } from "redux/type/UserType"
 import { XOA_DANH_SACH_GHE_DANG_DAT } from "redux/type/FilmType"
 import { getApiChiTietPhongVeAction } from "./FilmAction"
 
@@ -138,5 +138,59 @@ export const thongTinTaiKhoanAction = (userLogin) => {
 
 
         } catch (err) { console.log('errors', err.response?.data) }
+    }
+}
+
+
+export const getApiArrUser = () => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`,
+                method: 'get'
+            })
+            // console.log(result.data)
+            dispatch({
+                type: GET_USER,
+                data: result.data
+            })
+        } catch (err) {
+            console.log(err.response?.data)
+        }
+    }
+}
+
+export const getApiTimKiemAction = (tuKhoa) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP01&tuKhoa=${tuKhoa}`,
+                method: 'get'
+            })
+            // console.log('tim kiem action', result.data)
+            dispatch({
+                type: TIM_KIEM_USER,
+                data: result.data
+            })
+
+        } catch (err) { console.log(err.response?.data) }
+    }
+}
+
+export const delApiUserAction = (taiKhoan) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
+                method: 'delete',
+                headers:{
+                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                }
+            })
+            // console.log('del user action', result.data)
+            window.location.reload()
+        } catch (err) {
+            console.log(err.response?.data)
+        }
     }
 }

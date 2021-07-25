@@ -1,46 +1,54 @@
-import React, { useState } from 'react'
-import { Form, Input, Button, Upload, message, Select, DatePicker, ConfigProvider } from 'antd';
+import React, { useState, useEffect } from 'react'
+import { Form, Input, Button, Upload, Select, DatePicker, ConfigProvider } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-// import './ThemPhim.css'
+import './ThemPhim.css'
 import moment from 'moment';
 import 'moment/locale/vi';
 import locale from 'antd/lib/locale/vi_VN';
-import { Formik } from 'formik';
-import { keys } from 'lodash';
-import { useDispatch } from 'react-redux';
-import { themPhimAction } from 'redux/action/FilmAction';
-export default function ThemPhim(props) {
+import { useDispatch, useSelector } from 'react-redux';
+import { editPhimAction, themPhimAction } from 'redux/action/FilmAction';
+export default function EditPhim(props) {
     const [date, setDate] = useState(moment(new Date()).format('DD/MM/YYYY'))
-    const [imgSrc, setImgSrc] = useState('');
+    // const [editPhimValue,setEditPhimValue] = useState({...props.object})
+    // console.log('props',props.object,props.object.maPhim)
     const dispatch = useDispatch();
+    // useEffect(()=>{
+    //     setEditPhimValue({...props.object})
+    // },[props.object])
+    const [form] = Form.useForm();
+    useEffect(() => {
+        form.setFieldsValue({
+            maPhim: props.object.maPhim,
+            tenPhim: props.object.tenPhim,
+            biDanh:props.object.biDanh,
+            trailer:props.object.trailer,
+            hinhAnh:props.object.hinhAnh,
+            danhGia:props.object.danhGia,
+            ngayKhoiChieu:props.object.ngayKhoiChieu,
+            moTa:props.object.moTa
+        })
+    }, [props.object])
 
+    // ======select
+    const { Option } = Select;
     const onFinish = (values) => {
         values.ngayKhoiChieu = date
         values.maPhim = Number(values.maPhim)
         values.danhGia = Number(values.danhGia)
         values.hinhAnh = values.hinhAnh.file
-        // parseInt(values.maPhim)
 
         console.log('Success:', values);
 
 
-        //biến đối tượng thành formData
         let formData = new FormData();
         for (let key in values) {
-
-            //xử lý nếu duyệt tới truòng hình ảnh dạng file thì đưa vào đối tượng formData với 3 tham số
-            // if (key === 'hinhAnh') {
-            //     formData.append('File', values[key], values[key].name)
-            // } else {
-            //     formData.append(key, values[key])
-            // }
             formData.append(key, values[key])
         }
         formData.forEach((item, index) => {
             console.log('formData', item, index)
         })
 
-        dispatch(themPhimAction(formData))
+        dispatch(editPhimAction(formData))
 
     };
 
@@ -48,47 +56,33 @@ export default function ThemPhim(props) {
         console.log('Failed:', errorInfo);
     };
 
-    // ======= upload
-    // const handleImg = (value) => {
 
-    //     console.log(value)
-    //     setImgSrc=(value.file)
-    // }
-
-    // ======select
-    const { Option } = Select;
-
-    function handleChange(value) {
-        // console.log(`selected ${value}`);
-    }
 
     // ====date picker
     function onChange(date, dateString) {
-        // console.log(moment(date).format('DD/MM/YYYY'),'date')
         setDate(moment(date).format('DD/MM/YYYY'))
-        // setDate(dateString)
     }
     const dateFormat = 'DD/MM/YYYY'
-
-    // console.log(date, 'date ???')
+    // console.log(editPhimValue.maPhim, 'editPhimValue.maPhim ???')
     return (
         <div >
             <Form
+                form={form}
                 name="basic"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
-            // initialValues={testDate}
-
-
+            // initialValues={props.object}
+            // onValuesChange={props.object}
             >
                 <Form.Item
                     label="Mã Phim"
                     name="maPhim"
                     rules={[{ required: true, message: 'Không được để trống!' }]}
+                // initialValue={props.object.maPhim}
                 >
-                    <Input />
+                    <Input disabled />
                 </Form.Item>
                 <Form.Item
                     label="Tên Phim"
@@ -136,7 +130,7 @@ export default function ThemPhim(props) {
                     rules={[{ required: true, message: 'Vui lòng chọn mã nhóm!' }]}
 
                 >
-                    <Select style={{ width: 120 }} onChange={handleChange} defaultValue="Chọn">
+                    <Select style={{ width: 120 }} defaultValue="Chọn">
                         <Option value="GP01">GP01</Option>
                         <Option value="GP02">GP02</Option>
                         <Option value="GP03">GP03</Option>
@@ -164,7 +158,7 @@ export default function ThemPhim(props) {
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button type="primary" htmlType="submit">
-                        Thêm Phim
+                        Chỉnh Sửa Phim
                     </Button>
                 </Form.Item>
             </Form>
