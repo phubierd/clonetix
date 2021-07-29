@@ -92,7 +92,7 @@ export default function HeaderRes() {
 
             </Menu.Item>
             {(userLogin.maLoaiNguoiDung === "QuanTri") ? <Menu.Item key="1">
-                <NavLink to="/quanlyphim"><Button type="text">Quản Lý Trang</Button></NavLink>
+                <NavLink  to="/quanlyphim" ><Button type="text">Quản Lý Trang</Button></NavLink>
             </Menu.Item> : ''}
 
             <Menu.Divider />

@@ -21,20 +21,20 @@ export const history = createBrowserHistory()
 function App() {
   return (
 
-    <HashRouter history={history}>
+    <BrowserRouter history={history}>
       <Switch>
-        <Route  path="/home" component={Home} />
-        <Route  path="/filmdetail/:postID" component={FilmDetail} />
-        <Route  path="/checkout/:id" component={CheckOut} />
-        <Route  path="/userlogin" component={UserLogin} />
-        <Route  path="/register" component={Register} />
-        <Route  path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/filmdetail/:postID" component={FilmDetail} />
+        <Route exact path="/checkout/:id" component={CheckOut} />
+        <Route exact path="/userlogin" component={UserLogin} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/" component={Home} />
         {/* <HomeTemplate  path="/" component={testHomeTP} /> */}
         {/* <Route  path="/admin" component={AdminTemplate} /> */}
-        <AdminTemplate  path="/quanlyphim" component={QuanLyPhim}/>
-        <AdminTemplate  path="/quanlynguoidung" component={QuanLyUser}/>
+        <AdminTemplate exact path="/quanlyphim" component={QuanLyPhim}/>
+        <AdminTemplate exact path="/quanlynguoidung" component={QuanLyUser}/>
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
 
 
 
