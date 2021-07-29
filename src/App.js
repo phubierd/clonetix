@@ -21,7 +21,7 @@ export const history = createBrowserHistory()
 function App() {
   return (
 
-    <BrowserRouter history={history}>
+    <HashRouter history={history}>
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route exact path="/filmdetail/:postID" component={FilmDetail} />
@@ -34,7 +34,7 @@ function App() {
         <AdminTemplate exact path="/quanlyphim" component={QuanLyPhim}/>
         <AdminTemplate exact path="/quanlynguoidung" component={QuanLyUser}/>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
 
 
 
