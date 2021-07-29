@@ -41,7 +41,7 @@ export default function HeaderRes() {
         setIsModalVisible(true)
     }
 
-    
+
 
     // ====== thong tin tai khoan
     const menu = (
@@ -92,7 +92,7 @@ export default function HeaderRes() {
 
             </Menu.Item>
             {(userLogin.maLoaiNguoiDung === "QuanTri") ? <Menu.Item key="1">
-                <NavLink  to="/quanlyphim" ><Button type="text">Quản Lý Trang</Button></NavLink>
+                <NavLink to="/quanlyphim" ><Button type="text">Quản Lý Trang</Button></NavLink>
             </Menu.Item> : ''}
 
             <Menu.Divider />
@@ -113,7 +113,7 @@ export default function HeaderRes() {
                     <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></NavLink>
                 </a>
 
-                <button className="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
 
@@ -131,11 +131,21 @@ export default function HeaderRes() {
                         <li className="nav-item text-center">
                             <a className="nav-link" href="#appMobileID">Ứng Dụng</a>
                         </li>
+                        <li className="nav-item ml-auto">
+                            {
+                                _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
+                                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                        <img src={`https://avatars.dicebear.com/api/human/${userLogin.taiKhoan}.svg`} width="30px" height="30px" alt="..." />Hi ! {userLogin.taiKhoan} <DownOutlined />
+                                    </a>
+                                </Dropdown>
+                            }
+                            
+                        </li>
                     </ul>
 
                 </div>
 
-                <Menu theme="light" mode="horizontal" className="myNavbar__infoUser ">
+                {/* <Menu theme="light" mode="horizontal" className="myNavbar__infoUser ">
                     <Menu.Item key="5">
                         {
                             _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
@@ -157,7 +167,7 @@ export default function HeaderRes() {
 
                         </>
                     </Menu.Item>
-                </Menu>
+                </Menu> */}
 
             </nav>
             <BackTop />

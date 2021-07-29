@@ -23,8 +23,8 @@ header .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .n
     }
     .nav-item:hover{
         background-color: rgba(0, 0, 0, 0.083);
-    }
-    .myNavbar .myNavbar__location{
+    } 
+    #navbarTogglerDemo02 .navbar-nav .ant-menu-item .myNavbar__location{ 
         display: none;
-    }
-}
+     }
+ }

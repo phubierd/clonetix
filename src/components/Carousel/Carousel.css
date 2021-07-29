@@ -70,3 +70,13 @@
     padding: 0;
     height: 400px;
 }
+
+
+@media screen and (max-width:992px) {
+    .carousel__img{
+        margin-top: 50px;
+    }
+    .carousel__img img:first-child{
+        height: 450px !important;;
+    }
+}
