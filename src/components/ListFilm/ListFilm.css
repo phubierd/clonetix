@@ -148,3 +148,21 @@
     padding: 0 ; 
     height: 500px ;
 }
+
+@media screen and (max-width:992px) {
+    .cardListFilm img:first-child{
+        height: 300px;
+        width: 200px;
+    }
+    .listFilm__rate{
+        right: 18%;
+        top: 3%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .listFilm__rate{
+        right: 32%;
+        top: 2%;
+        opacity: 0.5;
+    }
+}
