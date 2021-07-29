@@ -16,7 +16,7 @@ export default function News() {
                     <Tabs defaultActiveKey="1" centered className="news">
                         <TabPane tab="Điện Ảnh 24h" key="1">
                             <Row gutter={16}>
-                                <Col span={12}>
+                                <Col sm={24} md={12}>
                                     <Card className="news__card" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -32,7 +32,7 @@ export default function News() {
                                         />
                                     </Card>
                                 </Col>
-                                <Col span={12}>
+                                <Col sm={24} md={12}>
                                     <Card className="news__card" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -50,7 +50,7 @@ export default function News() {
                                 </Col>
                             </Row>
                             <Row gutter={16} style={{ marginTop: '20px' }}>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8}>
                                     <Card className="news__card gutter-row" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -66,7 +66,7 @@ export default function News() {
                                         />
                                     </Card>
                                 </Col>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8}>
                                     <Card className="news__card gutter-row" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -82,7 +82,7 @@ export default function News() {
                                         />
                                     </Card>
                                 </Col>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8}>
                                     <Row gutter={24} >
                                         <Col span={4}>
                                             <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" alt="..."/>
@@ -121,7 +121,7 @@ export default function News() {
                         </TabPane>
                         <TabPane tab="Review" key="2">
                             <Row gutter={16}>
-                                <Col span={12}>
+                                <Col sm={24} md={12}>
                                     <Card className="news__card" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -137,7 +137,7 @@ export default function News() {
                                         />
                                     </Card>
                                 </Col>
-                                <Col span={12}>
+                                <Col sm={24} md={12}>
                                     <Card className="news__card" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -155,7 +155,7 @@ export default function News() {
                                 </Col>
                             </Row>
                             <Row gutter={16} style={{ marginTop: '20px' }}>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8}>
                                     <Card className="news__card gutter-row" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -171,7 +171,7 @@ export default function News() {
                                         />
                                     </Card>
                                 </Col>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8}>
                                     <Card className="news__card gutter-row" hoverable={true}
                                         style={{ width: '100%' }}
                                         cover={
@@ -187,7 +187,7 @@ export default function News() {
                                         />
                                     </Card>
                                 </Col>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8}>
                                     <Row gutter={24} >
                                         <Col span={4}>
                                             <img src="./img/news/dong-gia-1k-ve-khi-mua-ve-qua-tix-16010092946804.png" height="50px" width="50px" alt="..."/>
@@ -226,7 +226,7 @@ export default function News() {
                         </TabPane>
                         <TabPane tab="Khuyến Mãi" key="3">
                             <Row gutter={16}>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8} style={{margin:'10px 0'}}>
 
                                     <img height="350px" width="100%" style={{borderRadius:'50px'}}
                                         alt="example"
@@ -234,7 +234,7 @@ export default function News() {
                                     />
 
                                 </Col>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8} style={{margin:'10px 0'}}>
 
                                     <img height="350px" width="100%" style={{borderRadius:'50px'}}
                                         alt="example"
@@ -242,7 +242,7 @@ export default function News() {
                                     />
 
                                 </Col>
-                                <Col span={8}>
+                                <Col sm={24} md={24} lg={8} style={{margin:'10px 0'}}>
 
                                     <img height="350px" width="100%" style={{borderRadius:'50px'}}
                                         alt="example"

@@ -34,7 +34,7 @@ export default function AppMobile() {
             <Row justify="center" >
                 <Col span={16} >
                     <Row justify="center" align="middle" style={{ marginTop: '10%' }}>
-                        <Col span={12} >
+                        <Col sm={24} md={12}  >
                             <Title >Ứng dụng tiện lợi dành cho
 
                                 người yêu điện ảnh</Title>
@@ -46,7 +46,7 @@ export default function AppMobile() {
 
 
                         </Col>
-                        <Col span={12} align="center">
+                        <Col sm={24} md={12} align="center">
                             {/* <div className="appMobile__iphone"></div> */}
                             <div className="appMobile__content">
                                 <img src='./img/mobile.png' height="100%" width="195px" className="appMobile__iphone" alt="..."/>

@@ -13,6 +13,8 @@ import { createBrowserHistory } from 'history'
 import AdminTemplate from 'pages/AdminTemplate/AdminTemplate';
 import QuanLyPhim from 'components/QuanLyPhim/QuanLyPhim';
 import QuanLyUser from 'components/QuanLyUser/QuanLyUser';
+import HomeTemplate from 'template/HomeTemplate/HomeTemplate';
+import testHomeTP from 'template/HomeTemplate/testHomeTP';
 
 export const history = createBrowserHistory()
 
@@ -21,15 +23,16 @@ function App() {
 
     <HashRouter history={history}>
       <Switch>
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/filmdetail/:postID" component={FilmDetail} />
-        <Route exact path="/checkout/:id" component={CheckOut} />
-        <Route exact path="/userlogin" component={UserLogin} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/" component={Home} />
-        {/* <Route exact path="/admin" component={AdminTemplate} /> */}
-        <AdminTemplate exact path="/quanlyphim" component={QuanLyPhim}/>
-        <AdminTemplate exact path="/quanlynguoidung" component={QuanLyUser}/>
+        <Route  path="/home" component={Home} />
+        <Route  path="/filmdetail/:postID" component={FilmDetail} />
+        <Route  path="/checkout/:id" component={CheckOut} />
+        <Route  path="/userlogin" component={UserLogin} />
+        <Route  path="/register" component={Register} />
+        <Route  path="/" component={Home} />
+        {/* <HomeTemplate  path="/" component={testHomeTP} /> */}
+        {/* <Route  path="/admin" component={AdminTemplate} /> */}
+        <AdminTemplate  path="/quanlyphim" component={QuanLyPhim}/>
+        <AdminTemplate  path="/quanlynguoidung" component={QuanLyUser}/>
       </Switch>
     </HashRouter>
 

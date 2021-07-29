@@ -1,0 +1,30 @@
+
+header .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+    color: #fb4226;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+    color: #fb4226;
+
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
+
+    color: #fb4226;
+}
+
+/* ===== info user */
+.myNavbar__infoUser {
+    background-color: transparent;
+}
+
+@media screen and (max-width:992px) {
+    .myNavbar__infoUser {
+        margin-left: auto;
+    }
+    .nav-item:hover{
+        background-color: rgba(0, 0, 0, 0.083);
+    }
+    .myNavbar .myNavbar__location{
+        display: none;
+    }
+}

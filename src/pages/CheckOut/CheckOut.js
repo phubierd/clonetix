@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
-import Header from 'components/Header/Header'
+// import Header from 'components/Header/Header'
 import Footer from 'components/Footer/Footer'
 import { Row, Col, Typography, Button, Modal, Space } from 'antd'
 import './CheckOut.css'
@@ -10,6 +10,7 @@ import _ from 'lodash'
 import { USER_LOGIN } from 'util/setting'
 import { Redirect } from 'react-router'
 import { datVeAction } from 'redux/action/UserAction'
+import HeaderRes from 'components/Header/HeaderRes'
 
 export default function CheckOut(props) {
 
@@ -65,15 +66,15 @@ export default function CheckOut(props) {
 
     return (
         <div className='checkOut'>
-            <Header />
+            <HeaderRes />
             <div style={{ margin: '100px 0' }}>
                 <Row justify="center" align="middle">
-                    <Col span={16} style={{ textAlign: 'center' }}>
+                    <Col xs={24} sm={24} md={24} lg={16} style={{ textAlign: 'center' }}>
                         <img src="https://tix.vn/app/assets/img/icons/screen.png" alt="..." width='100%' />
                         <br />
                         {renderGhe()}
                     </Col>
-                    <Col span={8} >
+                    <Col xs={24} sm={24} md={24} lg={8} >
                         <div style={{ textAlign: 'center', fontSize: '50px' }}>
                             <Text type="success" >{danhSachGheDangDat.reduce((tongTien, gheDD, index) => {
                                 return tongTien += gheDD.giaVe

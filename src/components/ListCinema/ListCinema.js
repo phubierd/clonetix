@@ -27,11 +27,11 @@ export default function ListCinema(props) {
                             </div>} key={index}>
                             {htr.cumRapChieu?.map((cumRap, index) => {
                                 return <div key={index}>
-                                    <Row justify="start" style={{ margin: '20px 0' }}>
-                                        <Col span={2} align="middle">
+                                    <Row justify="center" style={{ margin: '20px 0' }}>
+                                        <Col sm={24} md={4} align="middle" style={{textAlign:'center'}}>
                                             <img src='https://picsum.photos/50/50' style={{ borderRadius: '50%' }} alt="..."/>
                                         </Col>
-                                        <Col span={11}>{cumRap.tenCumRap}
+                                        <Col sm={24} md={20}>{cumRap.tenCumRap}
                                             <div>
                                                 <Row>
                                                     {cumRap.lichChieuPhim.splice(0, 12).map((lichChieu, index) => {

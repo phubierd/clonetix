@@ -1,32 +1,26 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import './HeaderRes.css'
+
 import { Layout, Menu, Avatar, Dropdown, Select, Button, BackTop, Modal, Tabs } from 'antd';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
-import { NavLink } from 'react-router-dom';
-import './Header.css';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash'
 import { ACCESSTOKEN, USER_LOGIN } from 'util/setting';
 import { thongTinTaiKhoanAction } from 'redux/action/UserAction';
 import moment from 'moment';
 
+export default function HeaderRes() {
 
-export default function Header(props) {
     //connect reducer lay thong tin login
     const { userLogin, thongTinTaiKhoan } = useSelector(state => state.UserReducer)
     // console.log('userLogin', userLogin)
     // console.log(thongTinTaiKhoan)
 
     const dispatch = useDispatch();
-    const { Header } = Layout;
-    const { Option } = Select;
     const { TabPane } = Tabs;
 
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [collapsed, setCollapsed] = useState(false)
-    const handleClick = () => {
-        setIsModalVisible(true)
-    }
 
     const logOut = () => {
         // console.log(USER_LOGIN,'clicking ...')
@@ -40,8 +34,14 @@ export default function Header(props) {
         dispatch(thongTinTaiKhoanAction(userLogin))
 
     }, [])
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
+    const { Option } = Select;
+    const handleClick = () => {
+        setIsModalVisible(true)
+    }
 
+    
 
     // ====== thong tin tai khoan
     const menu = (
@@ -107,24 +107,35 @@ export default function Header(props) {
 
 
     return (
-        <Layout>
-            <Header style={{ position: 'fixed', zIndex: 2, width: '100%' }} className="myHeader">
-
-                <div className="logo">
+        <header>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top myNavbar">
+                <a className="navbar-brand" href="#">
                     <NavLink to="/"><img src='https://tix.vn/app/assets/img/icons/web-logo.png' width='50px' height='50px' alt="web-logo" style={{ cursor: 'pointer' }} /></NavLink>
-                </div>
-                <div className="myHeader__navbar-mobile">
-                    <i class="fa fa-bars"></i>
-                </div>
-                <Menu theme="light" mode="horizontal" className="myHeader__navbar">
-                    <Menu.Item key="1" onClick={props.executeScroll} >Lịch Chiếu</Menu.Item>
-                    <Menu.Item key="2" onClick={props.executeScroll}>Cụm Rạp</Menu.Item>
-                    <Menu.Item key="3" onClick={props.executeScroll}>Tin Tức</Menu.Item>
-                    <Menu.Item key="4" onClick={props.executeScroll}>Ứng Dụng</Menu.Item>
+                </a>
 
+                <button className="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon" />
+                </button>
 
-                </Menu>
-                <Menu theme="light" mode="horizontal">
+                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul className="navbar-nav mt-2 mt-lg-0 m-auto " >
+                        <li className="nav-item text-center">
+                            <a className="nav-link" href="#listFilmID">Lịch Chiếu </a>
+                        </li>
+                        <li className="nav-item text-center">
+                            <a className="nav-link" href="#cumRapID">Cụm Rạp</a>
+                        </li>
+                        <li className="nav-item text-center">
+                            <a className="nav-link" href="#newsID">Tin Tức</a>
+                        </li>
+                        <li className="nav-item text-center">
+                            <a className="nav-link" href="#appMobileID">Ứng Dụng</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <Menu theme="light" mode="horizontal" className="myNavbar__infoUser ">
                     <Menu.Item key="5">
                         {
                             _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
@@ -134,7 +145,7 @@ export default function Header(props) {
                             </Dropdown>
                         }
                     </Menu.Item>
-                    {/* <Menu.Item key="6"><i class="fa fa-map-marker-alt"></i>
+                    <Menu.Item key="6" className="myNavbar__location"><i class="fa fa-map-marker-alt"></i>
                         <>
                             <Select defaultValue="hcm" style={{ width: 120 }} >
                                 <Option value="hcm">Hồ Chí Minh</Option>
@@ -145,50 +156,16 @@ export default function Header(props) {
                             </Select>
 
                         </>
-                    </Menu.Item> */}
+                    </Menu.Item>
                 </Menu>
 
-            </Header>
-
+            </nav>
             <BackTop />
+        </header>
 
-
-
-        </Layout>
     )
 }
 
-{/* <div style={{ width: 256 }}>
-    <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-        {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-    </Button>
-    <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="light"
-        inlineCollapsed={collapsed}
 
-    >
-        <Menu.Item key="1" onClick={props.executeScroll} >Lịch Chiếu</Menu.Item>
-        <Menu.Item key="2" onClick={props.executeScroll}>Cụm Rạp</Menu.Item>
-        <Menu.Item key="3" onClick={props.executeScroll}>Tin Tức</Menu.Item>
-        <Menu.Item key="4" onClick={props.executeScroll}>Ứng Dụng</Menu.Item>
-
-        <Menu.Item key="6"><i class="fa fa-map-marker-alt"></i>
-            <>
-                <Select defaultValue="hcm" style={{ width: 120 }} >
-                    <Option value="hcm">Hồ Chí Minh</Option>
-                    <Option value="hn">Hà Nội</Option>
-                    <Option value="dn">Đà Nẵng</Option>
-                    <Option value="hp">Hải Phòng</Option>
-                    <Option value="bh">Biên Hòa</Option>
-                </Select>
-
-            </>
-        </Menu.Item>
-    </Menu>
-
-</div> */}
 
 

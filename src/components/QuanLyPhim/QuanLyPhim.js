@@ -95,13 +95,14 @@ export default function QuanLyPhim(props) {
         <div className="quanLyPhim">
             <Button type="primary" onClick={showDrawer}>Thêm Phim</Button>
             <Drawer
-                className="themPhim"
+                className="themPhimDrawer"
                 title="Thêm Phim"
                 width={600}
                 placement="right"
                 closable={false}
                 onClose={onClose}
                 visible={visible}
+                
             >
                 <ThemPhim />
             </Drawer>
@@ -159,6 +160,7 @@ export default function QuanLyPhim(props) {
                 closable={false}
                 onClose={onChildrenDrawerClose}
                 visible={childrenDrawer}
+                className="editPhimDrawer"
             >
                 <EditPhim object={selectedObject} />
             </Drawer>
@@ -170,6 +172,7 @@ export default function QuanLyPhim(props) {
                 closable={false}
                 onClose={onChildrenDrawerCloseLichChieu}
                 visible={childrenDrawerLichChieu}
+                className="taoLichChieuDrawer"
             >
             <TaoLichChieu object={selectedObject}/>
             </Drawer>

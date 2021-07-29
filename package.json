@@ -26,6 +26,7 @@
     "react-slick": "^0.28.1",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
+    "responsive-ant-menu": "^2.0.2",
     "router-dom": "^2.2.1",
     "sass-loader": "^12.1.0",
     "slick-carousel": "^1.8.1",

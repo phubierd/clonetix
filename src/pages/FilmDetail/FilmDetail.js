@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getApiFilmDetaiAction } from 'redux/action/FilmAction'
 import { Row, Col, Rate } from 'antd'
 import ListCinema from 'components/ListCinema/ListCinema'
-import Header from 'components/Header/Header'
+// import Header from 'components/Header/Header'
 import Footer from 'components/Footer/Footer'
+import HeaderRes from 'components/Header/HeaderRes'
 
 export default function FilmDetail(props) {
 
@@ -23,16 +24,16 @@ export default function FilmDetail(props) {
 
     return (
 
-        <div className="filmDetail">
-            <Header />
+        <div className="filmDetail" style={{minHeight:'100vh'}}>
+            <HeaderRes />
             <Row justify="center" style={{ margin: '100px 0' }}>
                 <Col span={16} align="center">
                     <Row align="middle">
-                        <Col span={12}>
+                        <Col xs={24} sm={24} md={12} style={{textAlign:'center'}}>
                             <img src={thongTinChiTiet?.hinhAnh} width="230px" height="350px"></img>
 
                         </Col>
-                        <Col span={12} style={{ textAlign: 'start' }}>
+                        <Col sm={24} md={12} style={{ textAlign: 'start' }}>
 
                             <h2 style={{color:'#5f5139'}}>Tên Phim: {thongTinChiTiet?.tenPhim}</h2>
 
@@ -48,7 +49,7 @@ export default function FilmDetail(props) {
                 <h2 style={{ textAlign: 'center',fontSize:'30px', color:'#5f5139' }}>Thông Tin Lịch Chiếu</h2>
                 <ListCinema heThongRapChieu={thongTinChiTiet?.heThongRapChieu}/>
             </div>
-            <Footer />
+            <Footer style={{marginBottom:'0'}} />
         </div>
 
 

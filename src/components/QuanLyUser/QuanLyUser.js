@@ -3,8 +3,9 @@ import { Table, Tag, Space, Button, Popconfirm, Drawer, Input } from 'antd';
 import { delApiUserAction, getApiArrUser, getApiTimKiemAction } from 'redux/action/UserAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { DeleteOutlined, EditOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import Search from 'antd/lib/transfer/search';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+import AddUser from './AddUser';
+import EditUser from './EditUser'
+import './QuanLyUser.css'
 
 export default function QuanLyUser() {
     const { Column, ColumnGroup } = Table;
@@ -12,11 +13,13 @@ export default function QuanLyUser() {
     const { arrUser,arrTimKiemUser } = useSelector(state => state.UserReducer)
     // console.log('arrTimKiemUser',arrTimKiemUser)
     // console.log('arrUser', arrUser)
+    const [selectedObject, setSelectedObject] = useState({})
+
     useEffect(() => {
         dispatch(getApiArrUser())
     }, [])
     const handleConfirmDelete = (object) => {
-        console.log('handle Del', object)
+        // console.log('handle Del', object)
         dispatch(delApiUserAction(object.taiKhoan))
     }
     //===== search
@@ -38,7 +41,7 @@ export default function QuanLyUser() {
     };
     const showChildrenDrawer = (object) => {
         setChildrenDrawer(true);
-        // setSelectedObject(object)
+        setSelectedObject(object)
         // console.log(object)
 
     };
@@ -53,14 +56,15 @@ export default function QuanLyUser() {
             <Button type="primary" onClick={showDrawer}>Thêm Người Dùng</Button>
             <Drawer
                 className="themPhim"
-                title="Thêm Phim"
+                title="Thêm Nguời Dùng"
                 width={600}
                 placement="right"
                 closable={false}
                 onClose={onClose}
                 visible={visible}
+                className="addUserDrawer"
             >
-                {/* <ThemPhim /> */}
+                <AddUser/>
             </Drawer>
             <div style={{ margin: '10px 0' }}>
                 <Space direction="vertical" >
@@ -109,13 +113,14 @@ export default function QuanLyUser() {
 
             <Drawer
                 style={{ opacity: '1' }}
-                title="Chỉnh Sửa Phim"
+                title="Chỉnh Sửa Nguời Dùng"
                 width={600}
                 closable={false}
                 onClose={onChildrenDrawerClose}
                 visible={childrenDrawer}
+                className="editUserDrawer"
             >
-                {/* <EditPhim object={selectedObject} /> */}
+                <EditUser selectedUser={selectedObject}/>
             </Drawer>
         </div>
     )

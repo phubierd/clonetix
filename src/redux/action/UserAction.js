@@ -177,14 +177,33 @@ export const getApiTimKiemAction = (tuKhoa) => {
     }
 }
 
+export const postAddUserAction = (user) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/ThemNguoiDung`,
+                method: 'post',
+                data: user,
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                }
+            })
+            // console.log('add action ok', result.data)
+            window.location.reload()
+        } catch (err) {
+            console.log(err.response?.data)
+        }
+    }
+}
+
 export const delApiUserAction = (taiKhoan) => {
     return async dispatch => {
         try {
             const result = await axios({
                 url: `${DOMAIN}/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
                 method: 'delete',
-                headers:{
-                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
                 }
             })
             // console.log('del user action', result.data)
@@ -192,5 +211,23 @@ export const delApiUserAction = (taiKhoan) => {
         } catch (err) {
             console.log(err.response?.data)
         }
+    }
+}
+
+
+export const putEditUserAction = (taiKhoan) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+                method: 'put',
+                data: taiKhoan,
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                }
+            })
+            console.log('edit user action', result.data)
+
+        } catch (err) { console.log(err.response?.data) }
     }
 }

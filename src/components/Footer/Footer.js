@@ -6,7 +6,7 @@ import './Footer.css';
 
 
 
-export default function Footer() {
+export default function Footer(props) {
     const { Footer } = Layout;
     const { Title, Link } = Typography;
     const arrLogoDoiTac = [
@@ -33,22 +33,22 @@ export default function Footer() {
         <Footer className="myFooter">
             <Row justify="center">
                 <Col span={16} >
-                    <Row>
-                        <Col span={6}>
+                    <Row style={{textAlign:'center'}}>
+                        <Col xs={24} md={12} lg={12} xl={6}>
                             <p>TIX</p>
                             <Row>
-                                <Col span={12}>
+                                <Col xs={24} sm={24} lg={12}>
                                     <p>FAQ</p>
                                     <p>Brand Guidelines</p>
                                 </Col>
-                                <Col span={12}>
+                                <Col xs={24} sm={24} lg={12}>
                                     <p>Thỏa thuận sử dụng</p>
                                     <p>Chính sách bảo mật</p>
                                 </Col>
                             </Row>
 
                         </Col>
-                        <Col span={6}>
+                        <Col xs={24} md={12} lg={12} xl={6}>
                             <p>ĐỐI TÁC</p>
                             {arrLogoDoiTac.map((item, index) => {
                                 return  <>
@@ -59,13 +59,13 @@ export default function Footer() {
                                 
                             })}
                         </Col>
-                    <Col span={6}>
+                    <Col xs={24} md={12} lg={12} xl={6}>
                         <p>MOBILE APP</p>
                         <img src='https://tix.vn/app/assets/img/icons/apple-logo.png' width="25px" height="30px" style={{ marginRight: '5px' }} alt="..." />
                         <img src='https://tix.vn/app/assets/img/icons/android-logo.png' width="25px" height="30px" alt="..." />
 
                     </Col>
-                    <Col span={6}>
+                    <Col xs={24} md={12} lg={12} xl={6}>
                         <p>SOCIAL</p>
                         <img src='https://tix.vn/app/assets/img/icons/facebook-logo.png' width="30px" height="30px" style={{ marginRight: '5px' }} alt="..."/>
                         <img src='https://tix.vn/app/assets/img/icons/zalo-logo.png' width="30px" height="30px" alt="..."/>
@@ -76,10 +76,10 @@ export default function Footer() {
                 <hr className="myFooterHr" />
 
                 <Row justify="center">
-                    <Col span={4}>
+                    <Col sm={24} md={4} >
                         <img src='https://tix.vn/app/assets/img/icons/zion-logo.jpg' width="80px" alt="..."/>
                     </Col>
-                    <Col span={16}>
+                    <Col sm={24}  md={16}>
                         <Title level={4}>
                             TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION
                         </Title>
@@ -91,7 +91,7 @@ export default function Footer() {
                         <p>Số Điện Thoại (Hotline): 1900 545 436</p>
                         <p>Email: <Link >support@tix.vn</Link></p>
                     </Col>
-                    <Col span={4}>
+                    <Col sm={24} md={4} >
                         <img src='https://s3img.vcdn.vn/123phim/2020/03/d1e6bd560daa9e20131ea8a0f62e87f8.png' width="130px" height="50px" alt="..."/>
                     </Col>
                 </Row>

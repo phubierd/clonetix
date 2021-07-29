@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { Form, Input, Button, Upload, message, Select, DatePicker, ConfigProvider } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-// import './ThemPhim.css'
+import './ThemPhim.css'
 import moment from 'moment';
 import 'moment/locale/vi';
 import locale from 'antd/lib/locale/vi_VN';
-import { Formik } from 'formik';
-import { keys } from 'lodash';
 import { useDispatch } from 'react-redux';
 import { themPhimAction } from 'redux/action/FilmAction';
 export default function ThemPhim(props) {
@@ -72,7 +70,7 @@ export default function ThemPhim(props) {
 
     // console.log(date, 'date ???')
     return (
-        <div >
+        <div className="themPhim">
             <Form
                 name="basic"
                 labelCol={{ span: 8 }}

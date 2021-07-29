@@ -1,8 +1,7 @@
-.checkOut{
+.checkOut {
     height: 100%;
-
 }
-.checkOut__text{
+.checkOut__text {
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     margin: 20px 0;
@@ -10,13 +9,12 @@
     font-size: 16px;
     font-weight: 600;
 }
-.checkOut__btn{
+.checkOut__btn {
     height: 50px;
     width: 150px;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1.5px;
-    
 }
 
 .ghe {
@@ -33,23 +31,64 @@
     background-color: seagreen;
 } */
 
-.gheVip{
+.gheVip {
     background-color: orange;
-    border-color:orange;
-
+    border-color: orange;
 }
 
-.gheDaDat{
+.gheDaDat {
     background-color: red !important;
     cursor: no-drop;
 }
 
-.gheDangDat{
+.gheDangDat {
     background-color: steelblue;
-
 }
 
-.gheMinhDat{
+.gheMinhDat {
     background-color: seagreen;
+}
 
+@media screen and (max-width: 1600px) {
+    .ghe {
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 1320px) {
+    .ghe {
+        height: 40px;
+        width: 40px;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .ghe {
+        height: 35px;
+        width: 35px;
+        margin: 3px;
+    }
+}
+@media screen and (max-width: 660px) {
+    .ghe {
+        height: 30px;
+        width: 30px;
+        margin: 2px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 545px) {
+    .ghe {
+        height: 20px;
+        width: 20px;
+        margin: 2px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 385px) {
+    .ghe {
+        height: 15px;
+        width: 15px;
+        margin: 2px;
+        font-size: 8px;
+    }
 }

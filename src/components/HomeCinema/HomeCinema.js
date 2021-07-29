@@ -44,11 +44,11 @@ export default function HomeCinema(props) {
                                     {arrRap.map((item, index) => {
                                         return <div key={index} style={{ margin: '10px' }}>
                                             <Row justify="center">
-                                                <Col span={4} align="middle">
+                                                <Col sm={24} md={4} align="middle">
                                                     <img src="https://picsum.photos/200/200" width='50px' height='50px' alt="..." style={{ marginRight: '10px', alignSelf: 'center', borderRadius: '10px' }} />
 
                                                 </Col>
-                                                <Col span={20}>
+                                                <Col sm={24} md={20}>
                                                     <div>
                                                         <h2 style={{ color: 'rgb(144 24 24 / 85%)' }}>{item.tenCumRap}</h2>
                                                         <p>
