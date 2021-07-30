@@ -46,7 +46,9 @@
 }
 
 .gheMinhDat {
-    background-color: seagreen;
+    background-color: seagreen !important;
+    color: orange !important;
+
 }
 
 @media screen and (max-width: 1600px) {

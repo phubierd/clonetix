@@ -11,6 +11,7 @@ import { USER_LOGIN } from 'util/setting'
 import { Redirect } from 'react-router'
 import { datVeAction } from 'redux/action/UserAction'
 import HeaderRes from 'components/Header/HeaderRes'
+import { UserAddOutlined } from '@ant-design/icons'
 
 export default function CheckOut(props) {
 
@@ -46,6 +47,13 @@ export default function CheckOut(props) {
                 classGheDangDat = 'gheDangDat'
             }
 
+            let classGheMinhDat = '';
+            if (ghe.taiKhoanNguoiDat === userLogin.taiKhoan) {
+                classGheMinhDat = 'gheMinhDat'
+            }
+
+            
+
 
             return <Fragment key={index}>
                 <button onClick={() => {
@@ -54,7 +62,13 @@ export default function CheckOut(props) {
                         ghe: ghe
                     };
                     dispatch(action)
-                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat}`}>{ghe.stt}</button>
+                }} disabled={ghe.daDat} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheMinhDat}`}>
+                
+                {/* {ghe.stt} */}
+
+                    {classGheMinhDat === '' ? ghe.stt : <UserAddOutlined />}
+
+                </button>
 
                 {(index + 1) % 16 === 0 ? <br /> : ''}
 
