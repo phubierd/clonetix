@@ -226,7 +226,9 @@ export const putEditUserAction = (taiKhoan) => {
                     'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
                 }
             })
-            console.log('edit user action', result.data)
+            // console.log('edit user action', result.data)
+            window.location.reload()
+
 
         } catch (err) { console.log(err.response?.data) }
     }

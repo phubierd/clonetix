@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Tabs, Radio, Space, Row, Col } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCinemaApiAction, getListRapAction } from 'redux/action/CinemaAction';
-
+import './HomeCinema.css'
 
 
 
@@ -32,7 +32,7 @@ export default function HomeCinema(props) {
                         <Radio.Group value='left'>
                         </Radio.Group>
                     </Space>
-                    <Tabs tabPosition='left'>
+                    <Tabs tabPosition='left' className="cumRam__tab"> 
                         {arrCinema.map((rap, index) => {
                             return <TabPane tab={
                                 <div>
