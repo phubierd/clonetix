@@ -24,4 +24,14 @@
     align-self: center;
 }
 
+/* ===== text admin */
+.ant-menu-horizontal > .ant-menu-item-selected a{
+    color: black;
+}
 
+/* ==== header userlogin */
+@media screen and (max-width: 992px) {
+    .adminTemplate__header  {
+        justify-content: space-between ;
+    }
+}

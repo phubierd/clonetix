@@ -26,6 +26,7 @@ export default function HomeCinema(props) {
     }, [])
     return (
         <div id="cumRapID" ref={props.myRef}>
+            <h2 style={{color:'rgba(144, 24, 24, 0.85)',textAlign:'center'}} >Thông Tin Rạp</h2>
             <Row justify="center">
                 <Col span={16}>
                     <Space style={{ marginBottom: 24 }}>

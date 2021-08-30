@@ -8,7 +8,8 @@ import { NavLink } from 'react-router-dom';
 export default function ListFilm(props) {
 
     const { arrFilm } = useSelector(state => state.FilmReducer)
-    const [trailer,setTrailer]=  useState({});
+    const [trailer, setTrailer] = useState({});
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 
     const dispatch = useDispatch();
 
@@ -49,6 +50,11 @@ export default function ListFilm(props) {
         const result = arrFilm.find(item => item.maPhim === maPhim)
         // console.log(result)
         setTrailer(result.trailer)
+        setIsVideoPlaying(true)
+    }
+
+    const handleResetTrailer = () => {
+        setIsVideoPlaying(false)
     }
 
     useEffect(() => {
@@ -101,16 +107,18 @@ export default function ListFilm(props) {
                     <Tabs defaultActiveKey="1" onChange={callback} className="listFilm">
                         <TabPane tab="Đang Chiếu" key="1" >
                             <div className="site-card-wrapper">
-                                <Row gutter={16} style={{justifyContent:'center'}}>
+                                <Row gutter={16} style={{ justifyContent: 'center' }}>
                                     {arrFilm.slice(2, 18).map((film, index) => {
                                         return <Col key={index} xs={24} sm={24} md={12} lg={6} xl={6}>
                                             <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..." />}>
                                                 <div className="listFilm__overLay" />
                                                 <img className="listFilm__play" src='./img/play-video.png' alt="..." onClick={() => { handleClick(film.maPhim) }} />
-                                                <Modal title="Trailer" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className='listFilm__modal'>
-                                                {/* {console.log('trailer',trailer)} */}
-                                                    <iframe width="100%" height="100%" src={trailer} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
-                                                </Modal>
+                                                {
+                                                    isVideoPlaying && <Modal title="Trailer" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} className='listFilm__modal' afterClose={handleResetTrailer}>
+                                                        {/* {console.log('trailer',trailer)} */}
+                                                        <iframe width="100%" height="100%" src={trailer} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                                                    </Modal>
+                                                }
                                                 <div className="listFilm__rate">
                                                     <span className="listFilm__text">{film.danhGia} </span>
                                                     <br />
@@ -135,7 +143,7 @@ export default function ListFilm(props) {
                             <div className="site-card-wrapper">
                                 <Row gutter={16}>
                                     {arrFilm.slice(30, 42).map((film, index) => {
-                                        return <Col xs={16} sm={16} md={12} lg={6} xl={6} key={index}>
+                                        return <Col key={index} xs={24} sm={24} md={12} lg={6} xl={6}>
                                             <Card className="cardListFilm" bordered={false} hoverable cover={<img alt={film.biDanh} src={film.hinhAnh} loading={true} width='215px' height='400px' alt="..." />}>
                                                 <div className="listFilm__overLay" />
                                                 <img className="listFilm__play" src='./img/play-video.png' alt="..." onClick={() => { handleClick(film.maPhim) }} />

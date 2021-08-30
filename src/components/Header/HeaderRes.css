@@ -21,11 +21,18 @@ header .navbar-light .navbar-nav .active > .nav-link,
     font-weight: 600;
 }
 /* ===== info user */
-.myNavbar__infoUser {
+/* .myNavbar__infoUser {
     background-color: transparent;
     position: absolute;
     right: 5%;
+} */
+.myNavbar__infoUser a{
+    color: black;
 }
+.myNavbar__infoUser a:hover{
+    color: black;
+}
+
 
 @media screen and (max-width: 992px) {
     .myNavbar__infoUser {

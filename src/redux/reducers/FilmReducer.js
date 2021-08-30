@@ -27,7 +27,7 @@ const initialState = {
         // }
     ],
     arrFilmSearch: [],
-    arrHeThongRap:[],
+    arrHeThongRap: [],
 
 }
 
@@ -43,7 +43,7 @@ export const FilmReducer = (state = initialState, action) => {
             return { ...state }
         }
         case SET_CHI_TIET_PHONG_VE: {
-            state.chiTietPhongVe = action.data
+            state.chiTietPhongVe = action.data;
             return { ...state }
         }
         case DAT_GHE: {
@@ -68,9 +68,9 @@ export const FilmReducer = (state = initialState, action) => {
             state.arrFilmSearch = action.data;
             return { ...state }
         }
-        case GET_HE_THONG_RAP:{
+        case GET_HE_THONG_RAP: {
             state.arrHeThongRap = action.data;
-            return{...state}
+            return { ...state }
         }
 
         default:

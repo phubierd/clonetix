@@ -131,7 +131,7 @@ export default function HeaderRes() {
                         <li className="nav-item text-center">
                             <a className="nav-link" href="#appMobileID">Ứng Dụng</a>
                         </li>
-                        <li className="nav-item ml-auto myNavbar__infoUser">
+                        {/* <li className="nav-item ml-auto myNavbar__infoUser">
                             {
                                 _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
                                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -139,9 +139,19 @@ export default function HeaderRes() {
                                     </a>
                                 </Dropdown>
                             }
-                            
-                        </li>
+
+                        </li> */}
                     </ul>
+
+                    <a className="myNavbar__infoUser">
+                        {
+                            _.isEmpty(userLogin) ? <NavLink to="/userlogin"><Avatar icon={<UserOutlined />} /> Đăng Nhập</NavLink> : <Dropdown overlay={menu}>
+                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                    <img src={`https://avatars.dicebear.com/api/human/${userLogin.taiKhoan}.svg`} width="30px" height="30px" alt="..." />Hi ! {userLogin.taiKhoan} <DownOutlined />
+                                </a>
+                            </Dropdown>
+                        }
+                    </a>
 
                 </div>
 

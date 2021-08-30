@@ -126,7 +126,7 @@ export default function AdminPage(props) {
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }}>
+                    <Header className="site-layout-background adminTemplate__header" style={{ padding: 0 }}>
                         <Button onClick={toggle} danger style={{alignSelf:'center'}}><MenuUnfoldOutlined/></Button>
                         <div>
                             <Menu theme="light" mode="horizontal">
